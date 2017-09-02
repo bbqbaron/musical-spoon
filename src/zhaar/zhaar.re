@@ -198,7 +198,12 @@ let app update state => {
   let world = Sanctum.world;
   <div style=(ReactDOMRe.Style.make display::"flex" ())>
     (picker update)
-    <svg width="900" height="900">
+    <svg width="900" height="900"
+      style=(
+        ReactDOMRe.Style.make
+        backgroundColor::"#000000" ()
+      )
+    >
       (
         arrayToElement (
           Array.of_list (List.map (fun {cell} => cell) (draw update state.currentRoom world))
