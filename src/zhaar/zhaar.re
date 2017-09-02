@@ -114,27 +114,40 @@ let drawCell update isSelected x y roomIdx contents => {
     | Empty => if isSelected {"#f3f302"} else {"#ffffff"}
     | C _ => if isSelected {"#f3f302"} else {"#ffffff"}
     };
+  let cellX = float_of_int x *. width;
+  let cellY = float_of_int y *. height;
   let cell =
     <rect
-      x=(string_of_float (float_of_int x *. width))
-      y=(string_of_float (float_of_int y *. height))
-      width=(string_of_float width) 
+      x=(string_of_float cellX)
+      y=(string_of_float cellY)
+      width=(string_of_float width)
       height=(string_of_float height)
       onClick=(update (fun _ => selectRoom (Some roomIdx)))
       key=(string_of_int x ^ string_of_int y)
       fill=color
     />;
-  let textStuff = cmap (fun {label} => label) contents;
+  let label =
+    cmap
+      (
+        fun {label} =>
+          <text x=(string_of_float (cellX -. width)) y=(string_of_float (cellY +. height))
+            textAnchor="start"
+          >
+            (stringToElement label)
+          </text>
+      )
+      contents |>
+    or_ nullElement;
   let doors = cmap (makeDoors x y) contents |> or_ [];
   let secretDoors = cmap (makeSecretDoors x y) contents |> or_ [];
   let walls = cmap (doWalls x y) contents |> or_ [];
-  (cell, (List.flatten [doors, walls, secretDoors], textStuff))
+  (cell, (List.flatten [doors, walls, secretDoors], label))
 };
 
 type renderedCell = {
   cell: reactElement,
   extraEls: list reactElement,
-  label: option string
+  label: reactElement
 };
 
 let roomRow update isSelected origX y roomIdx rowData =>
@@ -198,15 +211,14 @@ let app update state => {
   let world = Sanctum.world;
   <div style=(ReactDOMRe.Style.make display::"flex" ())>
     (picker update)
-    <svg width="900" height="900"
-      style=(
-        ReactDOMRe.Style.make
-        backgroundColor::"#000000" ()
-      )
-    >
+    <svg width="900" height="900" style=(ReactDOMRe.Style.make backgroundColor::"#000000" ())>
       (
         arrayToElement (
-          Array.of_list (List.map (fun {cell} => cell) (draw update state.currentRoom world))
+          Array.of_list (
+            List.concat (
+              List.map (fun {cell, label} => [cell, label]) (draw update state.currentRoom world)
+            )
+          )
         )
       )
     </svg>

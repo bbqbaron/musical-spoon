@@ -290,7 +290,7 @@ let world = [
     ]
   },
   {
-    title: "FIXME",
+    title: "SWITCHES",
     x: 22,
     y: 0,
     cells: [
@@ -309,7 +309,6 @@ let world = [
       [Empty, Empty, Empty, Full, Full, Full, Full, Full, Full, C {...empty, label: "B"}]
     ],
     notes: [
-      P "SWITCHES",
       P "The Xes are actually drawn on the floor!",
       L [
         "Summons an angry bombardier beetle when stepped on",
