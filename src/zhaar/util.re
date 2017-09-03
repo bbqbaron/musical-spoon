@@ -1,5 +1,5 @@
 let rec range ::a=0 b =>
-  if (a > b) {
+  if (a > (b - 1)) {
     []
   } else {
     [a, ...range a::(a + 1) b]

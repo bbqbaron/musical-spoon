@@ -513,11 +513,11 @@ let world = [
     y: 11,
     cells: [
       [C {...empty, label: "19"}, ...repeat 6 Empty],
-      List.concat (repeat 3 [Empty, Full]),
+      [Empty, ...List.concat (repeat 3 [Full, Empty])],
       repeat 7 Empty,
-      List.concat (repeat 3 [Empty, Full]),
+      [Empty, ...List.concat (repeat 3 [Full, Empty])],
       repeat 7 Empty,
-      List.concat (repeat 3 [Empty, Full]),
+      [Empty, ...List.concat (repeat 3 [Full, Empty])],
       [Empty, Empty, Empty, Empty, Empty, Empty, C {...empty, doors: [S]}]
     ],
     notes: [
@@ -589,7 +589,7 @@ let world = [
     cells: [
       List.concat [repeat 7 Full, [C {...empty, doors: [N], secretDoors: [W]}]],
       [C {...empty, label: "22"}, ...repeat 7 Empty],
-      List.concat (repeat 3 [Empty, Full]),
+      [Empty, ...List.concat (repeat 3 [Full, Empty])],
       [
         C {...empty, doors: [W]},
         Empty,
@@ -730,7 +730,7 @@ let world = [
   },
   {
     title: "FIXME",
-    x: 14,
+    x: 15,
     y: 19,
     cells: [
       [C {...empty, doors: [N], label: "x"}],
@@ -763,7 +763,7 @@ let world = [
   },
   {
     title: "FIXME",
-    x: 14,
+    x: 15,
     y: 29,
     cells: [
       [C {...empty, label: "30"}, ...repeat 5 Empty],

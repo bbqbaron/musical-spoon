@@ -117,7 +117,7 @@ let drawCell update isSelected x y roomIdx contents => {
       width=(string_of_float width)
       height=(string_of_float height)
       onClick=(update (fun _ => selectRoom (Some roomIdx)))
-      key=(string_of_int x ^ string_of_int y)
+      key=(string_of_int x ^ "/" ^ string_of_int y)
       fill=color
     />;
   let label =
