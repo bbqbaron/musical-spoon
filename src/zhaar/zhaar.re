@@ -1,35 +1,10 @@
 open ReasonReact;
 
 open Room;
-open Util;
-
-let makeRect width height color x y key =>
-  <rect
-    x=(string_of_int x)
-    y=(string_of_int y)
-    key
-    width=(string_of_int width)
-    height=(string_of_int height)
-    fill=color
-  />;
-
-let makeSquare = makeRect 20 20;
-
-let opened = makeSquare "#ffffff";
-
-let closed = makeSquare "#000000";
-
-let dims = 40;
 
 let height = 20.0;
 
 let width = 20.0;
-
-let baseGrid = {
-  open List;
-  let list = range dims;
-  map (fun x => map (fun y => closed x y (string_of_int x ^ string_of_int y)) list) list
-};
 
 let edgeWidth = 0.10;
 
@@ -37,9 +12,9 @@ let halfEdge = edgeWidth /. 2.0;
 
 let offset = halfEdge *. (-1.0);
 
-let space = 1.0 -. edgeWidth ;
+let space = 1.0 -. edgeWidth;
 
-let halfSpace = 1.0 -. halfEdge ;
+let halfSpace = 1.0 -. halfEdge;
 
 let edgeFor dir =>
   switch dir {
@@ -51,12 +26,15 @@ let edgeFor dir =>
 
 let makeEdge color dir x y => {
   let (xOffset, xScale, yOffset, yScale) = edgeFor dir;
+  let edgeX = string_of_float (width *. (xOffset +. float_of_int x));
+  let edgeY = string_of_float (height *. (yOffset +. float_of_int y));
   <rect
-    x=(string_of_float (width *. (xOffset +. float_of_int x)))
-    y=(string_of_float (height *. (yOffset +. float_of_int y)))
+    x=edgeX
+    y=edgeY
     width=(string_of_float (width *. xScale))
     height=(string_of_float (height *. yScale))
     fill=color
+    key=("edge-" ^ edgeX ^ "/" ^ edgeY)
   />
 };
 
@@ -117,16 +95,18 @@ let drawCell update isSelected x y roomIdx contents => {
       width=(string_of_float width)
       height=(string_of_float height)
       onClick=(update (fun _ => selectRoom (Some roomIdx)))
-      key=(string_of_int x ^ "/" ^ string_of_int y)
+      key=("cell-" ^ string_of_float cellX ^ "/" ^ string_of_float cellY)
       fill=color
     />;
   let label =
     cmap
       (
         fun {label} =>
-          <text x=(string_of_float cellX) y=(string_of_float (cellY +. height))
+          <text
+            x=(string_of_float cellX)
+            y=(string_of_float (cellY +. height))
             textAnchor="start"
-          >
+            key=("text-" ^ string_of_float cellX ^ "/" ^ string_of_float cellY)>
             (stringToElement label)
           </text>
       )
@@ -210,7 +190,9 @@ let app update state => {
         arrayToElement (
           Array.of_list (
             List.concat (
-              List.map (fun {cell, label, extraEls} => [cell, label, ...extraEls]) (draw update state.currentRoom world)
+              List.map
+                (fun {cell, label, extraEls} => [cell, label, ...extraEls])
+                (draw update state.currentRoom world)
             )
           )
         )
