@@ -1,6 +1,7 @@
 open ReasonReact;
 
 open Room;
+open Util;
 
 let makeRect width height color x y key =>
   <rect
@@ -23,13 +24,6 @@ let dims = 40;
 let height = 20.0;
 
 let width = 20.0;
-
-let rec range ::a=0 b =>
-  if (a > b) {
-    []
-  } else {
-    [a, ...range a::(a + 1) b]
-  };
 
 let baseGrid = {
   open List;

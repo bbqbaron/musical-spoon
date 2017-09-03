@@ -1,5 +1,7 @@
 open Room;
 
+open Util;
+
 let empty = {doors: [], label: "", secretDoors: [], walls: []};
 
 let world = [
@@ -318,6 +320,184 @@ let world = [
       ],
       P "A: from 10",
       P "B: Swirling white portal. Has a battery"
+    ]
+  },
+  {
+    title: "",
+    x: 22,
+    y: 3,
+    cells: [[C {...empty, label: "12"}]],
+    notes: [
+      P "CLOSET",
+      P "Portal is in the ceiling. Closes if battery is removed. Alchemical solvents, if recognized, include:",
+      L [
+        "Strong base that neutralizes capsaicin",
+        "Glassifier that renders materials transparent",
+        "Lemon-scented cleaner that removes Janitor filth",
+        "Golden broom that, when carried, leaves a perfectly metaphysically clean trail wherever the user goes. Cursed. Inhibits the formation of new long-term memories"
+      ]
+    ]
+  },
+  {
+    title: "FIXME",
+    x: 24,
+    y: 3,
+    cells: [
+      [C {...empty, label: "A"}, C {...empty, label: "13"}, C {...empty, label: "|"}],
+      [C {...empty, label: "-"}, C {...empty, label: "B"}, C {...empty, label: "-"}],
+      [C {...empty, label: "|"}, C {...empty, label: "|"}, C {...empty, label: "-"}]
+    ],
+    notes: [
+      P "SPIRALS",
+      P "A: From 10. Staircase laeding forever upward. Never ends",
+      P "B: Is a pole climbing 50 feet. While in contact with the pole (there are subtle switches on it) opens a swirling white portal above the climber. The others can jump down into it from higher on the stair. Sliding down the pole will also open the portal, though the pole gets _quite_ hot"
+    ]
+  },
+  {
+    title: "FIXME",
+    x: 28,
+    y: 3,
+    cells: [
+      [C {...empty, label: "14"}, Empty, Empty],
+      [Empty, Empty, C {...empty, label: "A"}],
+      [Empty, C {...empty, label: "B"}, Empty]
+    ],
+    notes: [
+      P "OvERLOOK",
+      P "No south or east wall. Looks down through a purplish void at he sanctum from afar. It is snowing black feathers from great drifting roc-clouds.",
+      P "A: Hidden by overhang, cave containing an umber hulk and a white portal to 10",
+      P "B: One of those scenery magnifiers. Takes 1 GP.. Warning label: 'Take care not to crush anything'. Scene viewer shows a battery  on the roof of the sanctum. If a pc is using the viewer, they can reach out and manipulate objects:",
+      L [
+        "Retrieve the battery",
+        "Put objects in 10; even PCs if strong enough",
+        "See the glow of the Cheenax",
+        "Shrink a roc to sparrow size",
+        "Actually crush things. This is ill-advised, unless the PC is skilled and lukcy, one or more areas may be destroyed or rendered unreachable. It's on them."
+      ]
+    ]
+  },
+  {
+    title: "FIXME",
+    x: 22,
+    y: 7,
+    cells: [
+      [C {...empty, label: "15"}, Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty],
+      [
+        Empty,
+        C {...empty, label: "A"},
+        Empty,
+        C {...empty, label: "B"},
+        Empty,
+        C {...empty, label: "C"},
+        Empty,
+        C {...empty, label: "D"},
+        Empty
+      ],
+      repeat 9 Empty
+    ],
+    notes: [
+      P "ENTRY2",
+      P "Four slides leave this room",
+      L ["A: to 16", "B: to 17", "C: to 18", "D: Boarded up. If PCs pry boards up, to 32"],
+      P "A: 'Prison'",
+      P "B: 'Vaults (real)'",
+      P "C: 'Other'",
+      P "D: Scratched out. Investigation reveals 'Stop writing, I'm not dictating right now. Don't _tell_ them that it leads to the chamber of tremendous ...'"
+    ]
+  },
+  {
+    title: "FIXME",
+    x: 0,
+    y: 11,
+    cells: [
+      List.concat (List.map (fun l => [C {...empty, label: l}, Full]) ["16", "B", "D", "F", "H"]),
+      repeat 10 Empty,
+      List.concat (
+        List.map (fun letter => [Full, C {...empty, label: letter}]) ["A", "C", "E", "G", "I"]
+      )
+    ],
+    notes: [
+      P "PRISON",
+      P "A: Blue Zhaar. Swears that he's the original, sane Zhaar. If pressed, it's because he's the 'only one who wears a primary color'. If released, he will:",
+      L [
+        "Cast a blue death ray at a PC wearing a secondary color",
+        "Vanish, leaving his empty robes. The robes are infested with Vinkellian Cerebral Worms.",
+        "He is now a wandering Zhaar. He appears to provoke/frame the PCs to get another Zhaar to appear."
+      ],
+      P "B: A second Blue Zhaar. Just an erinyes with a sense of humor. Offers a potion of heroism for her release.",
+      P "C: Khandura, enraged bariaur",
+      P "D: Skandus, a marraenoloth (hint)",
+      P "E: Empty",
+      P "F: 'Empty'. A Far Realm beast who communicates only in images named (picture of scrimshaw pig), waiting invisibly for Zhaar. If cell is opened, attempts to infest a character. Infested character _will_ jump into 15-D, and advocate tearing up the boards if you can subtly inform them.",
+      P "G: Empty",
+      P "H: A displacer beast wearing a blue collar. Reads 'R'shan' in some rough equivalent to Arabic",
+      P "I: Any PC kidnapped"
+    ]
+  },
+  {
+    title: "FIXME",
+    x: 12,
+    y: 10,
+    cells: [
+      [C {...empty, label: "17"}, Empty, Empty, Empty, Empty],
+      [Empty, Full, C {...empty, label: "B"}, Full, Empty],
+      [Empty, C {...empty, label: "E"}, C {...empty, label: "A"}, C {...empty, label: "C"}, Empty],
+      [Empty, Full, C {...empty, label: "D"}, Full, Empty],
+      repeat 5 Empty
+    ],
+    notes: [
+      P "VAULTS",
+      P "A: From 15-B",
+      P "Doors",
+      L [
+        "N: Spun safe handle. Unlocked",
+        "E: Combination lock. Wheel style. 1-2-3-4-5",
+        "S: Padlock",
+        "W: Featureless. Opened from 14?"
+      ],
+      P "B: Contains only a stone dragon head that breathes acid bees.",
+      P "C: Maybe:",
+      L [
+        "A magic first aid kit",
+        "A sword with a grooved blade and a poison reservoir in the handle.",
+        "A frozen fireball that explodes when melted."
+      ],
+      P "D: Full of unbreakable padlocks with keys...if you can match them",
+      P "E: Maybe:",
+      L [
+        "Ashtongue, a kris that dehydrates",
+        "A gnomish sewing machine that can process platinum thread",
+        "3500 GP in bars"
+      ]
+    ]
+  },
+  {
+    title: "FIXME",
+    x: 18,
+    y: 11,
+    cells: [
+      List.append
+        (List.map (fun l => C {...empty, label: l}) ["18", "B", "D", "F", "H"])
+        [C {...empty, label: "J", doors: [W]}],
+      [C {...empty, label: "A"}],
+      [C {...empty, label: "C"}],
+      [C {...empty, label: "E"}],
+      [C {...empty, label: "G", doors: [S]}],
+      [C {...empty, label: "I"}]
+    ],
+    notes: [
+      P "SYMPATHY HALL",
+      P "Doors:",
+      L ["E: Opens only after B, D, F, H are lit", "S: Opens when east door opens."],
+      P "A: lever. When thrown, gives strength to anyone on B",
+      P "B: Hammer test, like at a fair. Lights up on a WOW!",
+      P "C: Lever. Grants health (all grants last for a month) to D",
+      P "D: Button. Holding it down fills a meter while causing the holder great pain; they may pass out.",
+      P "E: Lever. Grants speed to F",
+      P "F: Robot sensei holding a coin. Taking it quickly causes the sensei to bow.",
+      P "G: Lever. Grants knowledge (and maybe a little personality) to H",
+      P "H: Quiz time! Ask the players to craft an interesting quiz about their professions. The last question must fuse the expertise of the players who exchanged knowledge",
+      P "I: Leads to J"
     ]
   }
 ];
