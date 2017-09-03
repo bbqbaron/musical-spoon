@@ -43,9 +43,9 @@ let halfEdge = edgeWidth /. 2.0;
 
 let offset = halfEdge *. (-1.0);
 
-let space = edgeWidth -. 1.0;
+let space = 1.0 -. edgeWidth ;
 
-let halfSpace = halfEdge -. 1.0;
+let halfSpace = 1.0 -. halfEdge ;
 
 let edgeFor dir =>
   switch dir {
@@ -130,7 +130,7 @@ let drawCell update isSelected x y roomIdx contents => {
     cmap
       (
         fun {label} =>
-          <text x=(string_of_float (cellX -. width)) y=(string_of_float (cellY +. height))
+          <text x=(string_of_float cellX) y=(string_of_float (cellY +. height))
             textAnchor="start"
           >
             (stringToElement label)
@@ -216,7 +216,7 @@ let app update state => {
         arrayToElement (
           Array.of_list (
             List.concat (
-              List.map (fun {cell, label} => [cell, label]) (draw update state.currentRoom world)
+              List.map (fun {cell, label, extraEls} => [cell, label, ...extraEls]) (draw update state.currentRoom world)
             )
           )
         )

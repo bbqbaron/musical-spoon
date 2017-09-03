@@ -56,7 +56,7 @@ let world = [
     x: 1,
     y: 2,
     cells: [
-      [C {...empty, label: "1"}, Full],
+      [C {...empty, label: "1"}, Empty],
       [Empty, C {...empty, doors: [E], label: "A"}],
       [Empty, Empty]
     ],
