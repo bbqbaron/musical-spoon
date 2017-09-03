@@ -106,7 +106,8 @@ let drawCell update isSelected x y roomIdx contents => {
             x=(string_of_float cellX)
             y=(string_of_float (cellY +. height))
             textAnchor="start"
-            key=("text-" ^ string_of_float cellX ^ "/" ^ string_of_float cellY)>
+            key=("text-" ^ string_of_float cellX ^ "/" ^ string_of_float cellY)
+            onClick=(update (fun _ => selectRoom (Some roomIdx))) >
             (stringToElement label)
           </text>
       )

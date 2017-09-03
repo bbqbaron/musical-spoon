@@ -77,7 +77,7 @@ let world = [
     y: 2,
     cells: [
       [Full, C {...empty, label: "2"}, Empty],
-      [C {...empty, doors: [W]}, Empty, C {...empty, label: "B"}],
+      [Empty, Empty, C {...empty, label: "B"}],
       [Full, C {...empty, label: "A"}, Empty]
     ],
     title: "WAITING ROOM",
@@ -91,7 +91,7 @@ let world = [
   {
     x: 10,
     y: 4,
-    cells: [[C {...empty, label: "3", doors: [W, E]}]],
+    cells: [[C {...empty, label: "3", doors: [W]}]],
     title: "DECON",
     notes: [
       P "Airlock sprays the party with prismatic rays. Zhaar despises halflings, war gods, mining tools, and bards. These prohibitions are clearly posted...in Elvish"
@@ -100,7 +100,7 @@ let world = [
   {
     x: 7,
     y: 5,
-    cells: [[C {...empty, label: "4", doors: [N]}]],
+    cells: [[C {...empty, label: "4"}]],
     title: "UNFINISHED",
     notes: [
       P "This door opens into Limbo. The environment on the other side may be:",
@@ -117,7 +117,7 @@ let world = [
     y: 1,
     cells: [
       [Full, Full, Full, Full, C {...empty, label: "5"}, C {...empty, label: "D"}],
-      [Full, Empty, Empty, Empty, Empty, C {...empty, doors: [E]}],
+      [Full, Empty, Empty, Empty, Empty, Empty],
       [
         C {...empty, doors: [W]},
         Empty,
@@ -126,7 +126,7 @@ let world = [
         C {...empty, walls: [S]},
         C {...empty, label: "E", walls: [S]}
       ],
-      [Full, C {...empty, doors: [S]}, Empty, Empty, C {...empty, doors: [E]}]
+      [Full, C {...empty, doors: [S]}, Empty, Empty]
     ],
     notes: [
       P "VISITORS",
@@ -212,8 +212,6 @@ let world = [
         Empty,
         Empty,
         Empty,
-        Full,
-        Empty
       ],
       [
         Empty,
