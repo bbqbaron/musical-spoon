@@ -499,5 +499,321 @@ let world = [
       P "H: Quiz time! Ask the players to craft an interesting quiz about their professions. The last question must fuse the expertise of the players who exchanged knowledge",
       P "I: Leads to J"
     ]
+  },
+  {
+    title: "FIXME",
+    x: 17,
+    y: 17,
+    cells: [[C {...empty, doors: [W]}, Empty, C {...empty, doors: [N]}]],
+    notes: []
+  },
+  {
+    title: "FIXME",
+    x: 24,
+    y: 11,
+    cells: [
+      [C {...empty, label: "19"}, ...repeat 6 Empty],
+      [Empty, ...List.concat (repeat 6 [Full, Empty])],
+      repeat 7 Empty,
+      [Empty, ...List.concat (repeat 6 [Full, Empty])],
+      repeat 7 Empty,
+      [Empty, ...List.concat (repeat 6 [Full, Empty])],
+      [Empty, Empty, Empty, Empty, Empty, Empty, C {...empty, doors: [S]}]
+    ],
+    notes: [
+      P "STALKER",
+      P "Doors",
+      L ["W: Unlocked", "S: Locked with a simple key lock."],
+      P "This room contains an astral stalker paid by Zhaar to kill anything that enters. It throws darts that cause supernatural cold, can use dimension door, and is quite intelligent. It has one magic item, maybe:",
+      L [
+        "A breastplate that reflects light, lightning, or generic magic rays",
+        "A pouch w/ 3 uses of sleep dust",
+        "A timewinder, 2 charges, that moves it 15 seconds into the past"
+      ]
+    ]
+  },
+  {
+    title: "FIXME",
+    x: 19,
+    y: 12,
+    cells: [[C {...empty, label: "20", walls: [W, N]}]],
+    notes: [
+      P "VIA NIGRA",
+      P "Pitch blank, silenced, unlightable hallway",
+      P "Doors",
+      L [
+        "E: Secret from other side",
+        "S: Opens easily, roll for every square to make them nervous. On a very low, the tiles they're on all teleport to random locations in the hallway"
+      ]
+    ]
+  },
+  {
+    title: "FIXME",
+    x: 20,
+    y: 13,
+    cells: [
+      [C {...empty, label: "21", walls: [E]}, Empty, Empty],
+      [C {...empty, walls: [E]}, C {...empty, walls: [E]}, Empty],
+      [C {...empty, walls: [E]}, C {...empty, walls: [E]}, Empty],
+      [C {...empty, walls: [E]}, C {...empty, walls: [E]}, Empty],
+      [C {...empty, walls: [E]}, C {...empty, walls: [E]}, Empty],
+      [C {...empty, walls: [E]}, C {...empty, walls: [E]}, Empty],
+      [Empty, C {...empty, walls: [E]}, Empty]
+    ],
+    notes: [
+      P "GALLERY",
+      P "Contains paintings. Maybe: ",
+      L [
+        "A dog walking a dog",
+        "A dog tearing out the throat of a unicorn",
+        "A great sphinx next to a tiny barely-lit hamlet",
+        "A very detailed study of a foot",
+        "A man with tongues for eyes andeye for a tongue. He is labeled 'Uncle'"
+      ],
+      P "Doors",
+      L [
+        "N: Locked hard, but not too hard",
+        "W: Unlocked. If blue zhaar is free, he'll probably show here with a very angry undead unocorn."
+      ],
+      P "Definitely contains a painting of a man lying dead in front of a chest. The chest is real, and trapped with a cloudkill. If it goes off, the man will rise coughing, and complain that he tried to warn them, then collapse again. The chest contains a wand of cloudkill (the trap) as well as maybe:",
+      L [
+        "A dagger that causes horrific wounds with psychic backlash on the wielder.",
+        "A chain shirt of great strength that squeals when you move."
+      ]
+    ]
+  },
+  {
+    title: "FIXME",
+    x: 23,
+    y: 18,
+    cells: [
+      List.concat [repeat 7 Full, [C {...empty, doors: [N], secretDoors: [W]}]],
+      [C {...empty, label: "22"}, ...repeat 7 Empty],
+      [Empty, ...List.concat (repeat 6 [Full, Empty])],
+      [
+        C {...empty, doors: [W]},
+        Empty,
+        C {...empty, doors: [S]},
+        Empty,
+        Empty,
+        C {...empty, doors: [S]},
+        Empty
+      ]
+    ],
+    notes: [
+      P "INTERSTICES",
+      P "Three great black columns.",
+      P "Doors",
+      L [
+        "SECRET: Is secret.",
+        "SE: Labeled 'Don't'",
+        "SW: Labeled 'Just kidding. Really, though, don't.",
+        "W: Locked",
+        "TODO: Need keys to find"
+      ]
+    ]
+  },
+  {
+    title: "FIXME",
+    x: 27,
+    y: 22,
+    cells: [
+      [C {...empty, label: "23", walls: [W, N]}, Empty, C {...empty, walls: [N]}],
+      repeat 3 Empty,
+      [C {...empty, label: "A", walls: [S]}, C {...empty, walls: [S]}, C {...empty, walls: [S]}]
+    ],
+    notes: [
+      P "SILVER CHAMBER",
+      P "Reflective walls. A lurker demon called Sunlight-on-Water. Lives in reflection. Breaking mirror turns him into a million tiny replicas. Eats beauty. Will accept _very_ nice tribute.",
+      P "A: Dull leaden chest. Contains maybe:",
+      L [
+        "A Tyrrhenian purple silk robe that allows one to teleport between golden objects",
+        "A rusted axe called Tarnbiter that sunders earth",
+        "Object d'arte"
+      ]
+    ]
+  },
+  {
+    title: "FIXME",
+    x: 24,
+    y: 22,
+    cells: [
+      [C {...empty, label: "24", walls: [W, N]}, Empty, C {...empty, walls: [E, N]}],
+      [C {...empty, walls: [W]}, Empty, C {...empty, walls: [E]}],
+      [
+        C {...empty, walls: [W, S]},
+        C {...empty, label: "A", walls: [S]},
+        C {...empty, walls: [S, E]}
+      ]
+    ],
+    notes: [
+      P "GOLD CHAMBER",
+      P "A roaring, frothing gladiator devil called a Trithuga, named the Marshal of Storms, wields trident and net. Challenges the most formidable-looking character to single combat. If defeated honorably, stands down and offers the contents of A. If dogpiled or killed via treachery, explodes in a shower of acid.",
+      P "A: An unlocked platinum chest. Contains:",
+      L [
+        "If marshal defeated: a gilded titanium shield whose crest gradually takes on the bearer's deeds, until they can do nothing bu stare at it, reliving old triumphs. If marshal betrayed, contains a quiver of obsidian arrows. The first arrow-using enemy you encounter suddenly possesses them al. They turn to reddish yew and fly truest into your own heart."
+      ]
+    ]
+  },
+  {
+    title: "DOORS",
+    x: 21,
+    y: 21,
+    cells: [
+      [Full, C {...empty, label: "25"}],
+      [C {...empty, doors: [S]}, C {...empty, doors: [E]}, C {...empty, doors: [S], walls: [N]}],
+      [C {...empty, doors: [E]}, C {...empty, doors: [E]}, C {...empty, doors: [S]}],
+      [C {...empty, doors: [E]}, C {...empty, doors: [N]}, C {...empty, doors: [N]}],
+      [
+        Full,
+        C {...empty, doors: [N]},
+        C {...empty, doors: [N]},
+        Empty,
+        C {...empty, label: "A"},
+        Empty,
+        C {...empty, label: "B"},
+        Empty,
+        Empty
+      ]
+    ],
+    notes: [
+      P "Each door is expertly locked. Keys can be obtained from various treasures if the party does not have an expert locksmith. Two locks are skill-locks requiring speed and prescience. One merely has a handle ten feet up. One;s handle is ethereal (FWIW, Kulichi is from the Border Ethereal).",
+      P "A: A murder hole allowing easy access to 24-A, which contains the Omnibus of Misdeeds, a record of the great atrocities. Can be consulted for details on anatomy, terrorism, viropathology, ghoul-summoning, and clairvoyance.",
+      P "B: A murder hole to 23-A"
+    ]
+  },
+  {
+    title: "FIXME",
+    x: 14,
+    y: 16,
+    cells: [
+      [C {...empty, label: "26"}, Empty, Empty],
+      [C {...empty, doors: [W]}, Empty, C {...empty, doors: [E]}],
+      [Empty, Empty, Empty]
+    ],
+    notes: [
+      P "GARDEN",
+      P "A perfectly idyllic place with nothing wrong or dangerous. A tree in the center bears rainbow fruit -- it always has exactly one of each color--that has no magical effects whatsoever.",
+      P "Doors:",
+      L [
+        "E: Open",
+        "N: Stuck closed, very elaborate",
+        "W: Brass knocker in a catoblepas mouth. Knocking causes it to gaze rheumy death. A character so killed may pass through the now-insubstantial door.",
+        "S: Unlocked"
+      ]
+    ]
+  },
+  {
+    title: "FIXME",
+    x: 15,
+    y: 15,
+    cells: [[C {...empty, label: "27", doors: [S], walls: [N]}]],
+    notes: [
+      P "KRYNNSPACE",
+      P "Opens above the stratosphere of Krynn. The effects are what you imagine. If the players survive, \nrun DLI-12 for them"
+    ]
+  },
+  {
+    title: "FIXME",
+    x: 10,
+    y: 15,
+    cells: [
+      [C {...empty, label: "28"}, Empty, C {...empty, walls: [N]}, C {...empty, walls: [N]}],
+      List.concat [repeat 3 Empty, [C {...empty, walls: [E]}]],
+      [Empty, Empty, Empty, C {...empty, doors: [E]}],
+      List.concat [repeat 3 Empty, [C {...empty, walls: [E]}]]
+    ],
+    notes: [
+      P "ROMPER ROOM",
+      P "Zhaar blows off steam here. Foam wrapped weapons. If you lift one, lights descend and a crowd murmurs. Victory in the ensuing duel brings the winner a hail of 500 razor-sharp gold pieces (Zhaar never wins). The GP counts as litter. However! A character killed by the catoblepas lock in 26 will attract the attention of veteran corner man Elim Coolara, now a minor devil. Elim will, in exchange for the opportunity to follow the party around, appear twice to talk a character out of a tough spot. He will use onecharge to restore the dead PC."
+    ]
+  },
+  {
+    title: "FIXME",
+    x: 14,
+    y: 19,
+    cells: [
+      [C {...empty, doors: [N], label: "x"}],
+      List.concat [
+        repeat 2 (C {...empty, label: "x"}),
+        [C {...empty, label: "29"}],
+        repeat 2 Empty
+      ],
+      [Empty, ...repeat 4 (C {...empty, label: "x"})],
+      List.concat [repeat 3 Full, [Empty, C {...empty, label: "x"}]],
+      [Full, Empty, ...repeat 3 (C {...empty, label: "x"})],
+      List.concat [[Full], repeat 2 (C {...empty, label: "x"}), repeat 2 Empty],
+      [Full, ...repeat 4 (C {...empty, label: "x"})],
+      [Full, ...repeat 4 (C {...empty, label: "x"})],
+      [Full, ...repeat 4 (C {...empty, label: "x"})],
+      [
+        Full,
+        C {...empty, walls: [S]},
+        C {...empty, doors: [S]},
+        C {...empty, doors: [S]},
+        C {...empty, walls: [S]}
+      ]
+    ],
+    notes: [
+      P "LETHE",
+      P "The river Lethe flows through this room under a low ceiling of Stygian boughs. It does what you think. Worse, \nthe trees are full of Barlgura, \nand one Akilith.",
+      P "Doors",
+      L ["S: Unlocked"]
+    ]
+  },
+  {
+    title: "FIXME",
+    x: 14,
+    y: 29,
+    cells: [
+      [C {...empty, label: "30"}, ...repeat 5 Empty],
+      [
+        C {...empty, secretDoors: [W]},
+        C {...empty, label: "A"},
+        C {...empty, label: "C"},
+        C {...empty, label: "E"},
+        C {...empty, label: "G"},
+        Empty
+      ],
+      [
+        Empty,
+        C {...empty, label: "B"},
+        C {...empty, label: "D"},
+        C {...empty, label: "F"},
+        C {...empty, label: "H"},
+        Empty
+      ]
+    ],
+    notes: [
+      P "TREASURE",
+      P "A chamber drowning in gold.",
+      P "A: Literally full of solid gold.",
+      P "B: Sixteen sets of black silk PJs",
+      P "C: A nightcap that fends off hags.",
+      P "D: Zhaar's teddy bear. 3/day turns into a velour golem.",
+      P "E: Troianus, \nan ancient man lying fetal in the chest. He rises--slowly, \ncreakily. If helped up, \nwill be very talkative and helpful.",
+      P "F: All maggots, \nexcept the black leather deathtouch armor at the bottom",
+      P "G: The complete text of the Epic of Kylantes. If all directions in the Epic are followed, \nthey lead to the ruins of the Temple of Amaunator.",
+      P "H: Not a chest, \nbut a dial with eight positions. The dial position determines where  the western secret door leads.",
+      P "Doors",
+      P "W: Secret. Leads to:",
+      L [
+        "The second spire of the General of Gehenna's Trident Fortress.",
+        "The midst of the perpetual revolution in Ruckus, \non one of the quieter layers of Pandemonium.",
+        "The sanctum of Raahz, \nZhaar's splinter personality.",
+        "The city of Brass",
+        "The body of Alaronfalel, \nelven goddess of Beauty before Sehanine Moonbow, \nslain by Maglubiyet, \nfloating in the Astral",
+        "A dream that Rary is currently having",
+        "The city of Kytons",
+        "Wherever your campaign need to go next"
+      ]
+    ]
+  },
+  {
+    title: "FIXME",
+    x: 16,
+    y: 0,
+    cells: [[C {...empty, label: "32"}, Empty, Empty, Empty, Empty], repeat 5 Empty],
+    notes: []
   }
 ];
