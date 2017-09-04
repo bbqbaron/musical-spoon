@@ -2,7 +2,6 @@ open Room;
 
 open Util;
 
-let empty = {doors: [], label: "", secretDoors: [], walls: []};
 
 let world = [
   {

@@ -103,11 +103,11 @@ let drawCell update isSelected x y roomIdx contents => {
       (
         fun {label} =>
           <text
-            x=(string_of_float cellX)
-            y=(string_of_float (cellY +. height))
+            x=(string_of_float (cellX +. 4.5))
+            y=(string_of_float (cellY +. height -. 4.5))
             textAnchor="start"
             key=("text-" ^ string_of_float cellX ^ "/" ^ string_of_float cellY)
-            onClick=(update (fun _ => selectRoom (Some roomIdx))) >
+            onClick=(update (fun _ => selectRoom (Some roomIdx)))>
             (stringToElement label)
           </text>
       )
@@ -183,7 +183,11 @@ let picker update =>
   </div>;
 
 let app update state => {
-  let world = Sanctum.world;
+  let world =
+    switch state.currentWorld {
+    | Zhaar => Sanctum.world
+    | Swamp => Swamp.world
+    };
   <div style=(ReactDOMRe.Style.make display::"flex" ())>
     (picker update)
     <svg width="900" height="900" style=(ReactDOMRe.Style.make backgroundColor::"#000000" ())>
@@ -209,6 +213,6 @@ let component = statefulComponent "Zhaar";
 
 let make _children => {
   ...component,
-  initialState: fun () => {currentWorld: Zhaar, currentRoom: None},
+  initialState: fun () => {currentWorld: Swamp, currentRoom: None},
   render: fun {state, update} => app update state
 };

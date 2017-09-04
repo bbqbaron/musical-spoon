@@ -28,3 +28,8 @@ type room = {
   title: string,
   notes: list note
 };
+
+let empty = {doors: [], label: "", secretDoors: [], walls: []};
+
+let make ::doors=[] ::secretDoors=[] ::label="" ::walls=[] () =>
+  C {label, doors, secretDoors, walls};
