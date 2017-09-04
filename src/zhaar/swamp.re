@@ -177,9 +177,8 @@ let world = [
     title: "The Spiral Concourse",
     notes: [
       P "Studded with tremendous femurs inscribed with bullywug pictograms. Each femur is the litany of an aspect of Goualliluk. The corrupted aspects have all but one verse scored out, magical or manual repair is a direct challenge to Tsathoggua. Will incense his corresponding child.",
-      P "Stairs down", L [
-        "West: II-2", "East: II-1"
-      ]
+      P "Stairs down",
+      L ["West: II-2", "East: II-1"]
     ],
     cells: [
       List.concat [[Empty], repeat 4 (make walls::[S] ()), [Empty, Empty, make label::"6" ()]],
@@ -198,11 +197,47 @@ let world = [
       ],
       repeat 5 Empty
     ]
-  }, {
-    x: 14, y:3,title: "Tunnel",notes:[P "Lined with an obviously deliberate planting of trees.", P "Pool descends into II-3"],
-    cells: 
-    [
-      [make label::"7" ()], [Empty],[Empty],[Empty],[make label::"~10" ()], [make label::"V" ()]
+  },
+  {
+    x: 12,
+    y: 3,
+    title: "Tunnel",
+    notes: [P "Lined with an obviously deliberate planting of trees.", P "Pool descends into II-3"],
+    cells: [
+      [Full, Full, make label::"7" ()],
+      [Full, Full, Empty],
+      [Full, Full, Empty],
+      [Full, Full, Empty],
+      [Full, Full, make label::"~10" ()],
+      [Full, Full, make label::"V" ()],
+      [Full, Full, make label::"II-3" ()],
+      [Full, Full, make label::"X" (), Empty, make label::"X" ()],
+      [Full, Full, Empty],
+      [Full, Full, Empty],
+      [Full, make label::"X" (), Empty, make label::"X" ()],
+      [Full, Full, Empty],
+      [make label::"X" (), make label::"X" (), Empty, make label::"X" (), make label::"X" ()],
+      [make label::"X" (), make label::"X" (), Empty, make label::"X" (), make label::"X" ()],
+      [make label::"X" (), make label::"X" (), Empty, make label::"X" (), make label::"X" ()],
+      [Full, Full, make label::"A" ()],
+      [Full, Full, make label::"B" ()],
+      [Full, Full, make label::"^" ()]
     ]
+  },
+  {
+    x: 14,
+    y: 21,
+    title: "The Flight",
+    notes: [
+      P "Scads of forensic evidence. Bullywugs fled en masse. Cut down by claws, poison, localized rot, strangulation by other bullywugs, or nothing apparent. A very careful count shows that some _may_ have escaped."
+    ],
+    cells:
+      List.concat [
+        [[make label::"I-8" ()]],
+        repeat 6 [Empty],
+        repeat 2 [make label::"~" ()],
+        /* TODO water depth */
+        repeat 3 [make label::"~" ()]
+      ]
   }
 ];
