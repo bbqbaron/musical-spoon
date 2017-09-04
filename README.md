@@ -1,19 +1,8 @@
-This is a repo with examples usages of [ReasonReact](https://github.com/reasonml/reason-react), whose docs are [here](https://reasonml.github.io/reason-react/).
-Have something you don't understand? Join us on [Discord](https://discord.gg/reasonml)!
+Self-teaching of [ReasonReact](https://github.com/reasonml/reason-react) by building a crude grid-based rendering engine for a stock of graph-paper D&D dungeons I scrawled by hand years ago.
 
-```sh
-git clone https://github.com/chenglou/reason-react-example.git
-cd reason-react-example
-npm install
-npm run build
-```
-
-Then open `src/index.html` to see the links to the examples (**no server needed!**). 
-
-To keep a watcher open, do:
-
-```sh
-npm start
-```
-
-This builds and watches the files. You can then modify whichever file in `src` and refresh the page to see the changes.
+#Needs (pretending for the moment that this will survive for more than a week or so)
+* Making cells in (admittedly typesafe!) Reason is kind of tedious. Can we parse a dungeon yaml or lisp or something? Are there deeper Reason tricks or dark ppx magic to be used here?
+* Alternate boundaries for e.g. curtains, cliffs
+* Alternate backgrounds to denote e.g. water
+* Icons for various common objects
+* Keyboard shortcuts
