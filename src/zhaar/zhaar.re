@@ -2,6 +2,8 @@ open ReasonReact;
 
 open Room;
 
+open Util;
+
 let height = 20.0;
 
 let width = 20.0;
@@ -76,9 +78,7 @@ let selectRoom idx {state} => Update {...state, currentRoom: idx};
 let drawCell update isSelected x y roomIdx contents => {
   let cellX = float_of_int x *. width;
   let cellY = float_of_int y *. height;
-  let color = if (isSelected) {
-    "#f3f302" 
-  } else "#ffffff";
+  let color = if isSelected {"#f3f302"} else {"#ffffff"};
   let cell =
     <rect
       x=(string_of_float cellX)
@@ -98,9 +98,9 @@ let drawCell update isSelected x y roomIdx contents => {
       onClick=(update (fun _ => selectRoom (Some roomIdx)))>
       (stringToElement contents.label)
     </text>;
-  let doors = makeDoors x y contents.doors;
-  let secretDoors = makeSecretDoors x y contents.secretDoors;
-  let walls = doWalls x y contents.walls;
+  let doors = makeDoors x y contents;
+  let secretDoors = makeSecretDoors x y contents;
+  let walls = doWalls x y contents;
   (cell, (List.flatten [doors, walls, secretDoors], label))
 };
 
@@ -110,20 +110,21 @@ type renderedCell = {
   label: reactElement
 };
 
-let roomRow update isSelected origX y roomIdx rowData =>
-  List.mapi
-    (
-      fun x contents => {
-        let (cell, (extraEls, label)) = drawCell update isSelected (x + origX) y roomIdx contents;
-        {cell, extraEls, label}
-      }
-    )
-    rowData;
+let roomRow update isSelected origX y roomIdx rowData => {
+  let makeRenderedCell x contents_ =>
+    switch contents_ {
+    | Some contents =>
+      let (cell, (extraEls, label)) = drawCell update isSelected (x + origX) y roomIdx contents;
+      Some {cell, extraEls, label}
+    | None => None
+    };
+  nub (List.mapi makeRenderedCell rowData)
+};
 
 let drawRoom update selected roomIdx {x: origX, y: origY, cells} => {
   open List;
   let isSelected = mmap ((==) roomIdx) selected |> or_ false;
-  mapi (fun y row => roomRow update isSelected origX (origY + y) roomIdx row) cells |> concat
+  cells |> mapi (fun y row => roomRow update isSelected origX (origY + y) roomIdx row) |> concat
 };
 
 let string_of_world world =>

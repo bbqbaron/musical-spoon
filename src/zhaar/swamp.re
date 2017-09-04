@@ -6,7 +6,7 @@ let world = [
   {
     x: 13,
     y: 0,
-    cells: [[C {...empty, label: "G"}]],
+    cells: [[c {...empty_, label: "G"}]],
     title: "The Heart of the Moors",
     notes: [
       P "Wherein the PCs pass from ordinary swamp into the moss-shrouded domain of a lost, near-forgotten plant god"
@@ -16,7 +16,7 @@ let world = [
     x: 14,
     y: 0,
     title: "Entrance",
-    cells: [[C {...empty, label: "I-1"}], [Empty], [Empty]],
+    cells: [[c {...empty_, label: "I-1"}], [empty], [empty]],
     notes: [
       P "Reached by a dark journey down a tunnel of waist-deep water.",
       L [
@@ -29,9 +29,9 @@ let world = [
     x: 16,
     y: 3,
     cells: [
-      [C {...empty, label: "O", secretDoors: [S], walls: [E]}, C {...empty, label: "1"}],
-      [Empty, Empty],
-      [Empty, Empty]
+      [c {...empty_, label: "O", secretDoors: [S], walls: [E]}, c {...empty_, label: "1"}],
+      [empty, empty],
+      [empty, empty]
     ],
     title: "DEAD END",
     notes: [
@@ -43,25 +43,25 @@ let world = [
     y: 0,
     cells: [
       [
-        C {...empty, label: "~"},
-        C {...empty, label: "2~"},
-        C {...empty, label: "2~"},
-        C {...empty, label: "3~"},
-        C {...empty, label: "3~"},
-        C {...empty, label: "2~"},
-        C {...empty, label: "7~"},
-        C {...empty, label: "2~"}
+        c {...empty_, label: "~"},
+        c {...empty_, label: "2~"},
+        c {...empty_, label: "2~"},
+        c {...empty_, label: "3~"},
+        c {...empty_, label: "3~"},
+        c {...empty_, label: "2~"},
+        c {...empty_, label: "7~"},
+        c {...empty_, label: "2~"}
       ],
       [
-        C {...empty, label: "2", walls: [E]},
-        C {...empty, label: "O", walls: [N, S]},
-        C {...empty, label: "V", walls: [W, E]},
-        C {...empty, label: "O", walls: [N, S]},
-        Full,
-        Full,
-        C {...empty, label: "V", walls: [W, E]},
-        Full,
-        Full
+        c {...empty_, label: "2", walls: [E]},
+        c {...empty_, label: "O", walls: [N, S]},
+        c {...empty_, label: "V", walls: [W, E]},
+        c {...empty_, label: "O", walls: [N, S]},
+        None,
+        None,
+        c {...empty_, label: "V", walls: [W, E]},
+        None,
+        None
       ]
     ],
     title: "LURKER TUNNEL",
@@ -74,54 +74,54 @@ let world = [
     y: 3,
     cells: [
       [
-        Full,
-        Full,
-        C {...empty, label: "O", walls: [N, E, S]},
-        C {...empty, label: "3", walls: [E]},
-        C {...empty, label: "O", walls: [N, S]}
+        None,
+        None,
+        c {...empty_, label: "O", walls: [N, E, S]},
+        c {...empty_, label: "3", walls: [E]},
+        c {...empty_, label: "O", walls: [N, S]}
       ],
       [
-        Full,
-        Full,
-        C {...empty, walls: [N, W]},
-        C {...empty, walls: [S]},
-        C {...empty, walls: [N, E]}
+        None,
+        None,
+        c {...empty_, walls: [N, W]},
+        c {...empty_, walls: [S]},
+        c {...empty_, walls: [N, E]}
       ],
       [
-        Full,
-        Full,
-        C {...empty, walls: [W, E]},
-        C {...empty, label: "O", walls: [N, W, E]},
-        C {...empty, walls: [W, E]}
+        None,
+        None,
+        c {...empty_, walls: [W, E]},
+        c {...empty_, label: "O", walls: [N, W, E]},
+        c {...empty_, walls: [W, E]}
       ],
       [
-        C {...empty, walls: [N, W]},
-        C {...empty, walls: [N]},
-        C {...empty, walls: [E]},
-        C {...empty, label: "O", walls: [E]},
-        Empty,
-        C {...empty, walls: [N]},
-        C {...empty, walls: [N, E]}
+        c {...empty_, walls: [N, W]},
+        c {...empty_, walls: [N]},
+        c {...empty_, walls: [E]},
+        c {...empty_, label: "O", walls: [E]},
+        empty,
+        c {...empty_, walls: [N]},
+        c {...empty_, walls: [N, E]}
       ],
       [
-        C {...empty, walls: [W, E]},
-        C {...empty, label: "O", walls: [N, E, S]},
-        C {...empty, walls: [E]},
-        C {...empty, label: "O", walls: [E, W]},
-        C {...empty, walls: [E]},
-        C {...empty, label: "O", walls: [N, E, S]},
-        C {...empty, walls: [E]}
+        c {...empty_, walls: [W, E]},
+        c {...empty_, label: "O", walls: [N, E, S]},
+        c {...empty_, walls: [E]},
+        c {...empty_, label: "O", walls: [E, W]},
+        c {...empty_, walls: [E]},
+        c {...empty_, label: "O", walls: [N, E, S]},
+        c {...empty_, walls: [E]}
       ],
       [
-        C {...empty, walls: [S, W]},
-        C {...empty, walls: [S]},
-        C {...empty, walls: [S], secretDoors: [E]},
-        C {...empty, walls: [N], secretDoors: [S]},
-        C {...empty, secretDoors: [W], walls: [S]},
-        C {...empty, walls: [N, S]},
-        C {...empty, walls: [S, E]}
+        c {...empty_, walls: [S, W]},
+        c {...empty_, walls: [S]},
+        c {...empty_, walls: [S], secretDoors: [E]},
+        c {...empty_, walls: [N], secretDoors: [S]},
+        c {...empty_, secretDoors: [W], walls: [S]},
+        c {...empty_, walls: [N, S]},
+        c {...empty_, walls: [S, E]}
       ],
-      [Full, Full, Full, C {...empty, walls: [S, E, W]}]
+      [None, None, None, c {...empty_, walls: [S, E, W]}]
     ],
     title: "CORRUPED ROTTER TEMPLE",
     notes: [
@@ -152,7 +152,7 @@ let world = [
         make walls::[S] (),
         make label::"A" ()
       ],
-      List.append (repeat 5 (make walls::[E] ())) [Empty]
+      List.append (repeat 5 (make walls::[E] ())) [empty]
     ]
   },
   {
@@ -163,12 +163,12 @@ let world = [
       P "Great hollow tree, obvious internal ladder. Ladder goes up and down. Is unreliable and rotted. May break. The lower section is scored with claw marks. Something ignored the ladder and climbed up. It had many limbs. First PC sees ghostly elven faces manifest and cry out. Ancient Elven: 'We are gone from this place. We are sorry. We wait in the Howling Hills.'"
     ],
     cells: [
-      [Empty, Empty, Full, Full],
-      [Empty, Full, Full, Full],
-      [Empty, make walls::[S, E] (), Empty, Empty],
-      [make walls::[E] (), make label::"O" walls::[E, S] (), Empty],
-      [Empty, make label::"5" (), Empty],
-      [Full, make label::"O" ()]
+      [empty, empty, None, None],
+      [empty, None, None, None],
+      [empty, make walls::[S, E] (), empty, empty],
+      [make walls::[E] (), make label::"O" walls::[E, S] (), empty],
+      [empty, make label::"5" (), empty],
+      [None, make label::"O" ()]
     ]
   },
   {
@@ -181,21 +181,21 @@ let world = [
       L ["West: II-2", "East: II-1"]
     ],
     cells: [
-      List.concat [[Empty], repeat 4 (make walls::[S] ()), [Empty, Empty, make label::"6" ()]],
+      List.concat [[empty], repeat 4 (make walls::[S] ()), [empty, empty, make label::"6" ()]],
       List.concat [
         [make walls::[E] ()],
-        [Empty],
+        [empty],
         repeat 2 (make walls::[S] ()),
         [make walls::[E] (), make label::"V" walls::[E] (), make label::"O" ()]
       ],
-      [make walls::[E] (), make walls::[E] (), Empty, make walls::[E] (), Empty],
-      [make walls::[E] (), make walls::[E] (), make walls::[S, E] (), make walls::[E] (), Empty],
+      [make walls::[E] (), make walls::[E] (), empty, make walls::[E] (), empty],
+      [make walls::[E] (), make walls::[E] (), make walls::[S, E] (), make walls::[E] (), empty],
       List.concat [
         [make walls::[E] ()],
         repeat 2 (make walls::[S] ()),
-        [make walls::[S, E] (), Empty]
+        [make walls::[S, E] (), empty]
       ],
-      repeat 5 Empty
+      repeat 5 empty
     ]
   },
   {
@@ -204,24 +204,24 @@ let world = [
     title: "Tunnel",
     notes: [P "Lined with an obviously deliberate planting of trees.", P "Pool descends into II-3"],
     cells: [
-      [Full, Full, make label::"7" ()],
-      [Full, Full, Empty],
-      [Full, Full, Empty],
-      [Full, Full, Empty],
-      [Full, Full, make label::"~10" ()],
-      [Full, Full, make label::"V" ()],
-      [Full, Full, make label::"II-3" ()],
-      [Full, Full, make label::"X" (), Empty, make label::"X" ()],
-      [Full, Full, Empty],
-      [Full, Full, Empty],
-      [Full, make label::"X" (), Empty, make label::"X" ()],
-      [Full, Full, Empty],
-      [make label::"X" (), make label::"X" (), Empty, make label::"X" (), make label::"X" ()],
-      [make label::"X" (), make label::"X" (), Empty, make label::"X" (), make label::"X" ()],
-      [make label::"X" (), make label::"X" (), Empty, make label::"X" (), make label::"X" ()],
-      [Full, Full, make label::"A" ()],
-      [Full, Full, make label::"B" ()],
-      [Full, Full, make label::"^" ()]
+      [None, None, make label::"7" ()],
+      [None, None, empty],
+      [None, None, empty],
+      [None, None, empty],
+      [None, None, make label::"~10" ()],
+      [None, None, make label::"V" ()],
+      [None, None, make label::"II-3" ()],
+      [None, None, make label::"X" (), empty, make label::"X" ()],
+      [None, None, empty],
+      [None, None, empty],
+      [None, make label::"X" (), empty, make label::"X" ()],
+      [None, None, empty],
+      [make label::"X" (), make label::"X" (), empty, make label::"X" (), make label::"X" ()],
+      [make label::"X" (), make label::"X" (), empty, make label::"X" (), make label::"X" ()],
+      [make label::"X" (), make label::"X" (), empty, make label::"X" (), make label::"X" ()],
+      [None, None, make label::"A" ()],
+      [None, None, make label::"B" ()],
+      [None, None, make label::"^" ()]
     ]
   },
   {
@@ -234,10 +234,63 @@ let world = [
     cells:
       List.concat [
         [[make label::"I-8" ()]],
-        repeat 6 [Empty],
+        repeat 6 [empty],
         repeat 2 [make label::"~" ()],
         /* TODO water depth */
         repeat 3 [make label::"~" ()]
       ]
+  },
+  {
+    x: 15,
+    y: 16,
+    title: "Choked",
+    notes: [
+      P "The remains of constricted woven thicket. Not more than a month overgrown. Corpse just inside is full of dartflies. They sting. Over time, the infected will turn into an amphibious humanoid (and presumably return to the swamps). They're an ecological weapon of war. Secret Curtain of neglected vines conceals a clutch of eggs. They'll be ready to hatch in a week or so. Uncorrupted."
+    ],
+    cells: [
+      List.append
+        (repeat 5 None) [make label::"A" (), None, make label::"B" doors::[S, E] (), empty],
+      List.append (repeat 5 None) [empty, None, empty, empty, empty],
+      [None, None, None, empty, None, make doors::[S] (), None, empty, make label::"C" (), empty],
+      [None, make doors::[S, E] (), make label::"10" (), ...repeat 7 empty],
+      [
+        None,
+        make doors::[S] (),
+        make walls::[N] (),
+        make walls::[N] (),
+        make walls::[N] (),
+        make walls::[N] (),
+        make walls::[N] (),
+        make walls::[N] (),
+        make walls::[W] (),
+        make walls::[N] ()
+      ],
+      [
+        None,
+        make label::"~" (),
+        None,
+        make doors::[S] walls::[E] (),
+        make doors::[N] (),
+        make doors::[S] (),
+        make walls::[N, E] (),
+        make walls::[E] (),
+        empty,
+        empty
+      ],
+      [
+        make label::"II-5" walls::[E, S, W] (),
+        empty,
+        None,
+        make label::"~" (),
+        make label::"~" doors::[E] (),
+        make doors::[N, E] (),
+        make walls::[S, E] (),
+        make walls::[E] (),
+        make walls::[S] (),
+        empty
+      ],
+      [make label::"~" (), make label::"9" (), ...repeat 8 empty],
+      List.append (repeat 6 None) [make secretDoors::[E] walls::[N] (), empty, empty, empty]
+    ]
   }
 ];
