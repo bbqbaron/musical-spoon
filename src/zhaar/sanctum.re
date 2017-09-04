@@ -2,7 +2,6 @@ open Room;
 
 open Util;
 
-
 let world = [
   {
     x: 0,
@@ -32,12 +31,12 @@ let world = [
         "Keys to various doors in 25"
       ]
     ],
-    cells: [[C {...empty, label: "G"}]]
+    cells: [[c {...empty_, label: "G"}]]
   },
   {
     x: 0,
     y: 3,
-    cells: [[C {...empty, label: "0", doors: [E]}]],
+    cells: [[c {...empty_, label: "0", doors: [E]}]],
     title: "OUTSIDE",
     notes: [
       P "OUTSIDE",
@@ -57,9 +56,9 @@ let world = [
     x: 1,
     y: 2,
     cells: [
-      [C {...empty, label: "1"}, Empty],
-      [Empty, C {...empty, doors: [E], label: "A"}],
-      [Empty, Empty]
+      [c {...empty_, label: "1"}, empty],
+      [empty, c {...empty_, doors: [E], label: "A"}],
+      [empty, empty]
     ],
     title: "ENTRY",
     notes: [
@@ -75,9 +74,9 @@ let world = [
     x: 3,
     y: 2,
     cells: [
-      [Full, C {...empty, label: "2"}, Empty],
-      [Empty, Empty, C {...empty, label: "B"}],
-      [Full, C {...empty, label: "A"}, Empty]
+      [None, c {...empty_, label: "2"}, empty],
+      [empty, empty, c {...empty_, label: "B"}],
+      [None, c {...empty_, label: "A"}, empty]
     ],
     title: "WAITING ROOM",
     notes: [
@@ -90,7 +89,7 @@ let world = [
   {
     x: 10,
     y: 4,
-    cells: [[C {...empty, label: "3", doors: [W]}]],
+    cells: [[c {...empty_, label: "3", doors: [W]}]],
     title: "DECON",
     notes: [
       P "Airlock sprays the party with prismatic rays. Zhaar despises halflings, war gods, mining tools, and bards. These prohibitions are clearly posted...in Elvish"
@@ -99,7 +98,7 @@ let world = [
   {
     x: 7,
     y: 5,
-    cells: [[C {...empty, label: "4"}]],
+    cells: [[c {...empty_, label: "4"}]],
     title: "UNFINISHED",
     notes: [
       P "This door opens into Limbo. The environment on the other side may be:",
@@ -115,17 +114,17 @@ let world = [
     x: 6,
     y: 1,
     cells: [
-      [Full, Full, Full, Full, C {...empty, label: "5"}, C {...empty, label: "D"}],
-      [Full, Empty, Empty, Empty, Empty, Empty],
+      [None, None, None, None, c {...empty_, label: "5"}, c {...empty_, label: "D"}],
+      [None, empty, empty, empty, empty, empty],
       [
-        C {...empty, doors: [W]},
-        Empty,
-        Full,
-        Full,
-        C {...empty, walls: [S]},
-        C {...empty, label: "E", walls: [S]}
+        c {...empty_, doors: [W]},
+        empty,
+        None,
+        None,
+        c {...empty_, walls: [S]},
+        c {...empty_, label: "E", walls: [S]}
       ],
-      [Full, C {...empty, doors: [S]}, Empty, Empty]
+      [None, c {...empty_, doors: [S]}, empty, empty]
     ],
     notes: [
       P "VISITORS",
@@ -140,9 +139,9 @@ let world = [
     x: 12,
     y: 1,
     cells: [
-      [Full, C {...empty, label: "6"}, C {...empty, doors: [N], label: "B"}],
-      [C {...empty, doors: [W]}, Empty, Empty],
-      [Full, C {...empty, walls: [S]}, C {...empty, walls: [S]}]
+      [None, c {...empty_, label: "6"}, c {...empty_, doors: [N], label: "B"}],
+      [c {...empty_, doors: [W]}, empty, empty],
+      [None, c {...empty_, walls: [S]}, c {...empty_, walls: [S]}]
     ],
     notes: [
       P "SITTING ROOM",
@@ -161,7 +160,7 @@ let world = [
     title: "FIXME",
     x: 12,
     y: 3,
-    cells: [[C {...empty, label: "7", walls: [W, E, N, S]}]],
+    cells: [[c {...empty_, label: "7", walls: [W, E, N, S]}]],
     notes: [
       P "CHEENAX: A creation of Zhaar. The cheenax powers the cucumber sandwich generator in 6, the decon in 3, and the portal to 10-e. It creates an aura of hunger as it saps mortal life force. Double food ticks w/in 3 squares. Emanates necromancy."
     ]
@@ -171,9 +170,9 @@ let world = [
     x: 11,
     y: 4,
     cells: [
-      [C {...empty, doors: [W]}, Empty, Empty, Empty],
-      [Full, Full, Full, Empty],
-      [Full, Empty, Empty, Empty]
+      [c {...empty_, doors: [W]}, empty, empty, empty],
+      [None, None, None, empty],
+      [None, empty, empty, empty]
     ],
     notes: []
   },
@@ -181,7 +180,7 @@ let world = [
     title: "FIXME",
     x: 15,
     y: 6,
-    cells: [[C {...empty, label: "8"}, Empty, Empty]],
+    cells: [[c {...empty_, label: "8"}, empty, empty]],
     notes: [
       P "THE PHANOPLIAN GATES",
       P "Four portcullises in succession",
@@ -200,62 +199,62 @@ let world = [
     y: 6,
     cells: [
       [
-        Empty,
-        Empty,
-        C {...empty, walls: [W]},
-        Empty,
-        C {...empty, walls: [W]},
-        Empty,
-        Empty,
-        Full,
-        Empty,
-        Empty,
-        Empty,
+        empty,
+        empty,
+        c {...empty_, walls: [W]},
+        empty,
+        c {...empty_, walls: [W]},
+        empty,
+        empty,
+        None,
+        empty,
+        empty,
+        empty
       ],
       [
-        Empty,
-        C {...empty, walls: [W]},
-        C {...empty, walls: [W]},
-        C {...empty, walls: [W]},
-        Empty,
-        Full,
-        Empty,
-        Full,
-        Empty,
-        Full,
-        Empty,
-        Full,
-        C {...empty, label: "9"}
+        empty,
+        c {...empty_, walls: [W]},
+        c {...empty_, walls: [W]},
+        c {...empty_, walls: [W]},
+        empty,
+        None,
+        empty,
+        None,
+        empty,
+        None,
+        empty,
+        None,
+        c {...empty_, label: "9"}
       ],
       [
-        Empty,
-        C {...empty, walls: [W, S]},
-        C {...empty, label: "B", walls: [S]},
-        C {...empty, label: "C", walls: [S, W]},
-        C {...empty, walls: [S]},
-        Full,
-        C {...empty, label: "D", walls: [S]},
-        C {...empty, walls: [S]},
-        C {...empty, label: "E", walls: [S]},
-        Full,
-        C {...empty, label: "F", walls: [S]},
-        C {...empty, label: "H", walls: [S]},
-        C {...empty, walls: [S]}
+        empty,
+        c {...empty_, walls: [W, S]},
+        c {...empty_, label: "B", walls: [S]},
+        c {...empty_, label: "C", walls: [S, W]},
+        c {...empty_, walls: [S]},
+        None,
+        c {...empty_, label: "D", walls: [S]},
+        c {...empty_, walls: [S]},
+        c {...empty_, label: "E", walls: [S]},
+        None,
+        c {...empty_, label: "F", walls: [S]},
+        c {...empty_, label: "H", walls: [S]},
+        c {...empty_, walls: [S]}
       ],
       [
-        C {...empty, label: "A", secretDoors: [E]},
-        Empty,
-        Empty,
-        Empty,
-        Empty,
-        Empty,
-        Empty,
-        Empty,
-        Empty,
-        Empty,
-        Empty,
-        Empty,
-        C {...empty, label: "G", walls: [S]}
+        c {...empty_, label: "A", secretDoors: [E]},
+        empty,
+        empty,
+        empty,
+        empty,
+        empty,
+        empty,
+        empty,
+        empty,
+        empty,
+        empty,
+        empty,
+        c {...empty_, label: "G", walls: [S]}
       ]
     ],
     notes: [
@@ -271,11 +270,11 @@ let world = [
     x: 18,
     y: 3,
     cells: [
-      [C {...empty, label: "A"}, Empty, C {...empty, label: "B"}],
-      [Empty, C {...empty, label: "10"}, Empty],
-      [C {...empty, label: "C"}, Empty, C {...empty, label: "D"}],
-      [Empty, Empty, Empty],
-      [Full, C {...empty, label: "E", secretDoors: [N]}, Full]
+      [c {...empty_, label: "A"}, empty, c {...empty_, label: "B"}],
+      [empty, c {...empty_, label: "10"}, empty],
+      [c {...empty_, label: "C"}, empty, c {...empty_, label: "D"}],
+      [empty, empty, empty],
+      [None, c {...empty_, label: "E", secretDoors: [N]}, None]
     ],
     notes: [
       P "COURTYARD",
@@ -294,18 +293,18 @@ let world = [
     y: 0,
     cells: [
       [
-        C {...empty, label: "11"},
-        C {...empty, label: "A", walls: [E, S]},
-        Empty,
-        C {...empty, label: "X"},
-        Empty,
-        C {...empty, label: "X"},
-        Empty,
-        C {...empty, label: "X"},
-        Empty,
-        C {...empty, label: "X"}
+        c {...empty_, label: "11"},
+        c {...empty_, label: "A", walls: [E, S]},
+        empty,
+        c {...empty_, label: "X"},
+        empty,
+        c {...empty_, label: "X"},
+        empty,
+        c {...empty_, label: "X"},
+        empty,
+        c {...empty_, label: "X"}
       ],
-      [Empty, Empty, Empty, Full, Full, Full, Full, Full, Full, C {...empty, label: "B"}]
+      [empty, empty, empty, None, None, None, None, None, None, c {...empty_, label: "B"}]
     ],
     notes: [
       P "The Xes are actually drawn on the floor!",
@@ -323,7 +322,7 @@ let world = [
     title: "",
     x: 22,
     y: 3,
-    cells: [[C {...empty, label: "12"}]],
+    cells: [[c {...empty_, label: "12"}]],
     notes: [
       P "CLOSET",
       P "Portal is in the ceiling. Closes if battery is removed. Alchemical solvents, if recognized, include:",
@@ -340,9 +339,9 @@ let world = [
     x: 24,
     y: 3,
     cells: [
-      [C {...empty, label: "A"}, C {...empty, label: "13"}, C {...empty, label: "|"}],
-      [C {...empty, label: "-"}, C {...empty, label: "B"}, C {...empty, label: "-"}],
-      [C {...empty, label: "|"}, C {...empty, label: "|"}, C {...empty, label: "-"}]
+      [c {...empty_, label: "A"}, c {...empty_, label: "13"}, c {...empty_, label: "|"}],
+      [c {...empty_, label: "-"}, c {...empty_, label: "B"}, c {...empty_, label: "-"}],
+      [c {...empty_, label: "|"}, c {...empty_, label: "|"}, c {...empty_, label: "-"}]
     ],
     notes: [
       P "SPIRALS",
@@ -355,9 +354,9 @@ let world = [
     x: 28,
     y: 3,
     cells: [
-      [C {...empty, label: "14"}, Empty, Empty],
-      [Empty, Empty, C {...empty, label: "A"}],
-      [Empty, C {...empty, label: "B"}, Empty]
+      [c {...empty_, label: "14"}, empty, empty],
+      [empty, empty, c {...empty_, label: "A"}],
+      [empty, c {...empty_, label: "B"}, empty]
     ],
     notes: [
       P "OvERLOOK",
@@ -378,19 +377,19 @@ let world = [
     x: 22,
     y: 7,
     cells: [
-      [C {...empty, label: "15"}, Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty],
+      [c {...empty_, label: "15"}, empty, empty, empty, empty, empty, empty, empty, empty],
       [
-        Empty,
-        C {...empty, label: "A"},
-        Empty,
-        C {...empty, label: "B"},
-        Empty,
-        C {...empty, label: "C"},
-        Empty,
-        C {...empty, label: "D"},
-        Empty
+        empty,
+        c {...empty_, label: "A"},
+        empty,
+        c {...empty_, label: "B"},
+        empty,
+        c {...empty_, label: "C"},
+        empty,
+        c {...empty_, label: "D"},
+        empty
       ],
-      repeat 9 Empty
+      repeat 9 empty
     ],
     notes: [
       P "ENTRY2",
@@ -407,10 +406,10 @@ let world = [
     x: 0,
     y: 11,
     cells: [
-      List.concat (List.map (fun l => [C {...empty, label: l}, Full]) ["16", "B", "D", "F", "H"]),
-      repeat 10 Empty,
+      List.concat (List.map (fun l => [c {...empty_, label: l}, None]) ["16", "B", "D", "F", "H"]),
+      repeat 10 empty,
       List.concat (
-        List.map (fun letter => [Full, C {...empty, label: letter}]) ["A", "C", "E", "G", "I"]
+        List.map (fun letter => [None, c {...empty_, label: letter}]) ["A", "C", "E", "G", "I"]
       )
     ],
     notes: [
@@ -424,9 +423,9 @@ let world = [
       P "B: A second Blue Zhaar. Just an erinyes with a sense of humor. Offers a potion of heroism for her release.",
       P "C: Khandura, enraged bariaur",
       P "D: Skandus, a marraenoloth (hint)",
-      P "E: Empty",
-      P "F: 'Empty'. A Far Realm beast who communicates only in images named (picture of scrimshaw pig), waiting invisibly for Zhaar. If cell is opened, attempts to infest a character. Infested character _will_ jump into 15-D, and advocate tearing up the boards if you can subtly inform them.",
-      P "G: Empty",
+      P "E: empty",
+      P "F: 'empty'. A Far Realm beast who communicates only in images named (picture of scrimshaw pig), waiting invisibly for Zhaar. If cell is opened, attempts to infest a character. Infested character _will_ jump into 15-D, and advocate tearing up the boards if you can subtly inform them.",
+      P "G: empty",
       P "H: A displacer beast wearing a blue collar. Reads 'R'shan' in some rough equivalent to Arabic",
       P "I: Any PC kidnapped"
     ]
@@ -436,11 +435,17 @@ let world = [
     x: 12,
     y: 10,
     cells: [
-      [C {...empty, label: "17"}, Empty, Empty, Empty, Empty],
-      [Empty, Full, C {...empty, label: "B"}, Full, Empty],
-      [Empty, C {...empty, label: "E"}, C {...empty, label: "A"}, C {...empty, label: "C"}, Empty],
-      [Empty, Full, C {...empty, label: "D"}, Full, Empty],
-      repeat 5 Empty
+      [c {...empty_, label: "17"}, empty, empty, empty, empty],
+      [empty, None, c {...empty_, label: "B"}, None, empty],
+      [
+        empty,
+        c {...empty_, label: "E"},
+        c {...empty_, label: "A"},
+        c {...empty_, label: "C"},
+        empty
+      ],
+      [empty, None, c {...empty_, label: "D"}, None, empty],
+      repeat 5 empty
     ],
     notes: [
       P "VAULTS",
@@ -459,7 +464,7 @@ let world = [
         "A sword with a grooved blade and a poison reservoir in the handle.",
         "A frozen fireball that explodes when melted."
       ],
-      P "D: Full of unbreakable padlocks with keys...if you can match them",
+      P "D: None of unbreakable padlocks with keys...if you can match them",
       P "E: Maybe:",
       L [
         "Ashtongue, a kris that dehydrates",
@@ -474,13 +479,13 @@ let world = [
     y: 11,
     cells: [
       List.append
-        (List.map (fun l => C {...empty, label: l}) ["18", "B", "D", "F", "H"])
-        [C {...empty, label: "J", doors: [W]}],
-      [C {...empty, label: "A"}],
-      [C {...empty, label: "C"}],
-      [C {...empty, label: "E"}],
-      [C {...empty, label: "G", doors: [S]}],
-      [C {...empty, label: "I"}]
+        (List.map (fun l => c {...empty_, label: l}) ["18", "B", "D", "F", "H"])
+        [c {...empty_, label: "J", doors: [W]}],
+      [c {...empty_, label: "A"}],
+      [c {...empty_, label: "C"}],
+      [c {...empty_, label: "E"}],
+      [c {...empty_, label: "G", doors: [S]}],
+      [c {...empty_, label: "I"}]
     ],
     notes: [
       P "SYMPATHY HALL",
@@ -501,7 +506,7 @@ let world = [
     title: "FIXME",
     x: 17,
     y: 17,
-    cells: [[C {...empty, doors: [W]}, Empty, C {...empty, doors: [N]}]],
+    cells: [[c {...empty_, doors: [W]}, empty, c {...empty_, doors: [N]}]],
     notes: []
   },
   {
@@ -509,13 +514,13 @@ let world = [
     x: 24,
     y: 11,
     cells: [
-      [C {...empty, label: "19"}, ...repeat 6 Empty],
-      [Empty, ...List.concat (repeat 3 [Full, Empty])],
-      repeat 7 Empty,
-      [Empty, ...List.concat (repeat 3 [Full, Empty])],
-      repeat 7 Empty,
-      [Empty, ...List.concat (repeat 3 [Full, Empty])],
-      [Empty, Empty, Empty, Empty, Empty, Empty, C {...empty, doors: [S]}]
+      [c {...empty_, label: "19"}, ...repeat 6 empty],
+      [empty, ...List.concat (repeat 3 [None, empty])],
+      repeat 7 empty,
+      [empty, ...List.concat (repeat 3 [None, empty])],
+      repeat 7 empty,
+      [empty, ...List.concat (repeat 3 [None, empty])],
+      [empty, empty, empty, empty, empty, empty, c {...empty_, doors: [S]}]
     ],
     notes: [
       P "STALKER",
@@ -533,7 +538,7 @@ let world = [
     title: "FIXME",
     x: 19,
     y: 12,
-    cells: [[C {...empty, label: "20", walls: [W, N]}]],
+    cells: [[c {...empty_, label: "20", walls: [W, N]}]],
     notes: [
       P "VIA NIGRA",
       P "Pitch blank, silenced, unlightable hallway",
@@ -549,13 +554,13 @@ let world = [
     x: 20,
     y: 13,
     cells: [
-      [C {...empty, label: "21", walls: [E]}, Empty, Empty],
-      [C {...empty, walls: [E]}, C {...empty, walls: [E]}, Empty],
-      [C {...empty, walls: [E]}, C {...empty, walls: [E]}, Empty],
-      [C {...empty, walls: [E]}, C {...empty, walls: [E]}, Empty],
-      [C {...empty, walls: [E]}, C {...empty, walls: [E]}, Empty],
-      [C {...empty, walls: [E]}, C {...empty, walls: [E]}, Empty],
-      [Empty, C {...empty, walls: [E]}, Empty]
+      [c {...empty_, label: "21", walls: [E]}, empty, empty],
+      [c {...empty_, walls: [E]}, c {...empty_, walls: [E]}, empty],
+      [c {...empty_, walls: [E]}, c {...empty_, walls: [E]}, empty],
+      [c {...empty_, walls: [E]}, c {...empty_, walls: [E]}, empty],
+      [c {...empty_, walls: [E]}, c {...empty_, walls: [E]}, empty],
+      [c {...empty_, walls: [E]}, c {...empty_, walls: [E]}, empty],
+      [empty, c {...empty_, walls: [E]}, empty]
     ],
     notes: [
       P "GALLERY",
@@ -584,17 +589,17 @@ let world = [
     x: 23,
     y: 18,
     cells: [
-      List.concat [repeat 7 Full, [C {...empty, doors: [N], secretDoors: [W]}]],
-      [C {...empty, label: "22"}, ...repeat 7 Empty],
-      [Empty, ...List.concat (repeat 3 [Full, Empty])],
+      List.concat [repeat 7 None, [c {...empty_, doors: [N], secretDoors: [W]}]],
+      [c {...empty_, label: "22"}, ...repeat 7 empty],
+      [empty, ...List.concat (repeat 3 [None, empty])],
       [
-        C {...empty, doors: [W]},
-        Empty,
-        C {...empty, doors: [S]},
-        Empty,
-        Empty,
-        C {...empty, doors: [S]},
-        Empty
+        c {...empty_, doors: [W]},
+        empty,
+        c {...empty_, doors: [S]},
+        empty,
+        empty,
+        c {...empty_, doors: [S]},
+        empty
       ]
     ],
     notes: [
@@ -615,9 +620,9 @@ let world = [
     x: 27,
     y: 22,
     cells: [
-      [C {...empty, label: "23", walls: [W, N]}, Empty, C {...empty, walls: [N]}],
-      repeat 3 Empty,
-      [C {...empty, label: "A", walls: [S]}, C {...empty, walls: [S]}, C {...empty, walls: [S]}]
+      [c {...empty_, label: "23", walls: [W, N]}, empty, c {...empty_, walls: [N]}],
+      repeat 3 empty,
+      [c {...empty_, label: "A", walls: [S]}, c {...empty_, walls: [S]}, c {...empty_, walls: [S]}]
     ],
     notes: [
       P "SILVER CHAMBER",
@@ -635,12 +640,12 @@ let world = [
     x: 24,
     y: 22,
     cells: [
-      [C {...empty, label: "24", walls: [W, N]}, Empty, C {...empty, walls: [E, N]}],
-      [C {...empty, walls: [W]}, Empty, C {...empty, walls: [E]}],
+      [c {...empty_, label: "24", walls: [W, N]}, empty, c {...empty_, walls: [E, N]}],
+      [c {...empty_, walls: [W]}, empty, c {...empty_, walls: [E]}],
       [
-        C {...empty, walls: [W, S]},
-        C {...empty, label: "A", walls: [S]},
-        C {...empty, walls: [S, E]}
+        c {...empty_, walls: [W, S]},
+        c {...empty_, label: "A", walls: [S]},
+        c {...empty_, walls: [S, E]}
       ]
     ],
     notes: [
@@ -657,20 +662,24 @@ let world = [
     x: 21,
     y: 21,
     cells: [
-      [Full, C {...empty, label: "25"}],
-      [C {...empty, doors: [S]}, C {...empty, doors: [E]}, C {...empty, doors: [S], walls: [N]}],
-      [C {...empty, doors: [E]}, C {...empty, doors: [E]}, C {...empty, doors: [S]}],
-      [C {...empty, doors: [E]}, C {...empty, doors: [N]}, C {...empty, doors: [N]}],
+      [None, c {...empty_, label: "25"}],
       [
-        Full,
-        C {...empty, doors: [N]},
-        C {...empty, doors: [N]},
-        Empty,
-        C {...empty, label: "A"},
-        Empty,
-        C {...empty, label: "B"},
-        Empty,
-        Empty
+        c {...empty_, doors: [S]},
+        c {...empty_, doors: [E]},
+        c {...empty_, doors: [S], walls: [N]}
+      ],
+      [c {...empty_, doors: [E]}, c {...empty_, doors: [E]}, c {...empty_, doors: [S]}],
+      [c {...empty_, doors: [E]}, c {...empty_, doors: [N]}, c {...empty_, doors: [N]}],
+      [
+        None,
+        c {...empty_, doors: [N]},
+        c {...empty_, doors: [N]},
+        empty,
+        c {...empty_, label: "A"},
+        empty,
+        c {...empty_, label: "B"},
+        empty,
+        empty
       ]
     ],
     notes: [
@@ -684,9 +693,9 @@ let world = [
     x: 14,
     y: 16,
     cells: [
-      [C {...empty, label: "26"}, Empty, Empty],
-      [C {...empty, doors: [W]}, Empty, C {...empty, doors: [E]}],
-      [Empty, Empty, Empty]
+      [c {...empty_, label: "26"}, empty, empty],
+      [c {...empty_, doors: [W]}, empty, c {...empty_, doors: [E]}],
+      [empty, empty, empty]
     ],
     notes: [
       P "GARDEN",
@@ -704,7 +713,7 @@ let world = [
     title: "FIXME",
     x: 15,
     y: 15,
-    cells: [[C {...empty, label: "27", doors: [S], walls: [N]}]],
+    cells: [[c {...empty_, label: "27", doors: [S], walls: [N]}]],
     notes: [
       P "KRYNNSPACE",
       P "Opens above the stratosphere of Krynn. The effects are what you imagine. If the players survive, \nrun DLI-12 for them"
@@ -715,10 +724,10 @@ let world = [
     x: 10,
     y: 15,
     cells: [
-      [C {...empty, label: "28"}, Empty, C {...empty, walls: [N]}, C {...empty, walls: [N]}],
-      List.concat [repeat 3 Empty, [C {...empty, walls: [E]}]],
-      [Empty, Empty, Empty, C {...empty, doors: [E]}],
-      List.concat [repeat 3 Empty, [C {...empty, walls: [E]}]]
+      [c {...empty_, label: "28"}, empty, c {...empty_, walls: [N]}, c {...empty_, walls: [N]}],
+      List.concat [repeat 3 empty, [c {...empty_, walls: [E]}]],
+      [empty, empty, empty, c {...empty_, doors: [E]}],
+      List.concat [repeat 3 empty, [c {...empty_, walls: [E]}]]
     ],
     notes: [
       P "ROMPER ROOM",
@@ -730,30 +739,30 @@ let world = [
     x: 15,
     y: 19,
     cells: [
-      [C {...empty, doors: [N], label: "x"}],
+      [c {...empty_, doors: [N], label: "x"}],
       List.concat [
-        repeat 2 (C {...empty, label: "x"}),
-        [C {...empty, label: "29"}],
-        repeat 2 Empty
+        repeat 2 (c {...empty_, label: "x"}),
+        [c {...empty_, label: "29"}],
+        repeat 2 empty
       ],
-      [Empty, ...repeat 4 (C {...empty, label: "x"})],
-      List.concat [repeat 3 Full, [Empty, C {...empty, label: "x"}]],
-      [Full, Empty, ...repeat 3 (C {...empty, label: "x"})],
-      List.concat [[Full], repeat 2 (C {...empty, label: "x"}), repeat 2 Empty],
-      [Full, ...repeat 4 (C {...empty, label: "x"})],
-      [Full, ...repeat 4 (C {...empty, label: "x"})],
-      [Full, ...repeat 4 (C {...empty, label: "x"})],
+      [empty, ...repeat 4 (c {...empty_, label: "x"})],
+      List.concat [repeat 3 None, [empty, c {...empty_, label: "x"}]],
+      [None, empty, ...repeat 3 (c {...empty_, label: "x"})],
+      List.concat [[None], repeat 2 (c {...empty_, label: "x"}), repeat 2 empty],
+      [None, ...repeat 4 (c {...empty_, label: "x"})],
+      [None, ...repeat 4 (c {...empty_, label: "x"})],
+      [None, ...repeat 4 (c {...empty_, label: "x"})],
       [
-        Full,
-        C {...empty, walls: [S]},
-        C {...empty, doors: [S]},
-        C {...empty, doors: [S]},
-        C {...empty, walls: [S]}
+        None,
+        c {...empty_, walls: [S]},
+        c {...empty_, doors: [S]},
+        c {...empty_, doors: [S]},
+        c {...empty_, walls: [S]}
       ]
     ],
     notes: [
       P "LETHE",
-      P "The river Lethe flows through this room under a low ceiling of Stygian boughs. It does what you think. Worse, \nthe trees are full of Barlgura, \nand one Akilith.",
+      P "The river Lethe flows through this room under a low ceiling of Stygian boughs. It does what you think. Worse, \nthe trees are None of Barlgura, \nand one Akilith.",
       P "Doors",
       L ["S: Unlocked"]
     ]
@@ -763,28 +772,28 @@ let world = [
     x: 15,
     y: 29,
     cells: [
-      [C {...empty, label: "30"}, ...repeat 5 Empty],
+      [c {...empty_, label: "30"}, ...repeat 5 empty],
       [
-        C {...empty, secretDoors: [W]},
-        C {...empty, label: "A"},
-        C {...empty, label: "C"},
-        C {...empty, label: "E"},
-        C {...empty, label: "G"},
-        Empty
+        c {...empty_, secretDoors: [W]},
+        c {...empty_, label: "A"},
+        c {...empty_, label: "C"},
+        c {...empty_, label: "E"},
+        c {...empty_, label: "G"},
+        empty
       ],
       [
-        Empty,
-        C {...empty, label: "B"},
-        C {...empty, label: "D"},
-        C {...empty, label: "F"},
-        C {...empty, label: "H"},
-        Empty
+        empty,
+        c {...empty_, label: "B"},
+        c {...empty_, label: "D"},
+        c {...empty_, label: "F"},
+        c {...empty_, label: "H"},
+        empty
       ]
     ],
     notes: [
       P "TREASURE",
       P "A chamber drowning in gold.",
-      P "A: Literally full of solid gold.",
+      P "A: Literally None of solid gold.",
       P "B: Sixteen sets of black silk PJs",
       P "C: A nightcap that fends off hags.",
       P "D: Zhaar's teddy bear. 3/day turns into a velour golem.",
@@ -810,7 +819,7 @@ let world = [
     title: "FIXME",
     x: 16,
     y: 0,
-    cells: [[C {...empty, label: "32"}, Empty, Empty, Empty, Empty], repeat 5 Empty],
+    cells: [[c {...empty_, label: "32"}, empty, empty, empty, empty], repeat 5 empty],
     notes: []
   }
 ];

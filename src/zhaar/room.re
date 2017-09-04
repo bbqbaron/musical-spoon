@@ -11,10 +11,8 @@ type cellContents = {
   walls: list dir
 };
 
-type cell =
-  | Empty
-  | Full
-  | C cellContents;
+type cell = option cellContents;
+let c a => Some a;
 
 /* TODO don't duplicate HTML poorly */
 type note =
@@ -29,7 +27,9 @@ type room = {
   notes: list note
 };
 
-let empty = {doors: [], label: "", secretDoors: [], walls: []};
+let empty_ = {doors: [], label: "", secretDoors: [], walls: []};
+
+let empty = Some empty_;
 
 let make ::doors=[] ::secretDoors=[] ::label="" ::walls=[] () =>
-  C {label, doors, secretDoors, walls};
+  Some {label, doors, secretDoors, walls};

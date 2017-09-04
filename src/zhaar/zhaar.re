@@ -73,21 +73,12 @@ type state = {
 
 let selectRoom idx {state} => Update {...state, currentRoom: idx};
 
-let cmap fn cell =>
-  switch cell {
-  | C contents => Some (fn contents)
-  | _ => None
-  };
-
 let drawCell update isSelected x y roomIdx contents => {
-  let color =
-    switch contents {
-    | Full => "#000000"
-    | Empty => if isSelected {"#f3f302"} else {"#ffffff"}
-    | C _ => if isSelected {"#f3f302"} else {"#ffffff"}
-    };
   let cellX = float_of_int x *. width;
   let cellY = float_of_int y *. height;
+  let color = if (isSelected) {
+    "#f3f302" 
+  } else "#ffffff";
   let cell =
     <rect
       x=(string_of_float cellX)
@@ -99,23 +90,17 @@ let drawCell update isSelected x y roomIdx contents => {
       fill=color
     />;
   let label =
-    cmap
-      (
-        fun {label} =>
-          <text
-            x=(string_of_float (cellX +. 4.5))
-            y=(string_of_float (cellY +. height -. 4.5))
-            textAnchor="start"
-            key=("text-" ^ string_of_float cellX ^ "/" ^ string_of_float cellY)
-            onClick=(update (fun _ => selectRoom (Some roomIdx)))>
-            (stringToElement label)
-          </text>
-      )
-      contents |>
-    or_ nullElement;
-  let doors = cmap (makeDoors x y) contents |> or_ [];
-  let secretDoors = cmap (makeSecretDoors x y) contents |> or_ [];
-  let walls = cmap (doWalls x y) contents |> or_ [];
+    <text
+      x=(string_of_float (cellX +. 4.5))
+      y=(string_of_float (cellY +. height -. 4.5))
+      textAnchor="start"
+      key=("text-" ^ string_of_float cellX ^ "/" ^ string_of_float cellY)
+      onClick=(update (fun _ => selectRoom (Some roomIdx)))>
+      (stringToElement contents.label)
+    </text>;
+  let doors = makeDoors x y contents.doors;
+  let secretDoors = makeSecretDoors x y contents.secretDoors;
+  let walls = doWalls x y contents.walls;
   (cell, (List.flatten [doors, walls, secretDoors], label))
 };
 
@@ -157,7 +142,10 @@ let renderNote note =>
   | L items =>
     <ul>
       (
-        items |> List.map (fun note => <li> (stringToElement note) </li>) |> Array.of_list |> arrayToElement
+        items
+        |> List.map (fun note => <li> (stringToElement note) </li>)
+        |> Array.of_list
+        |> arrayToElement
       )
     </ul>
   };
