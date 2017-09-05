@@ -159,7 +159,7 @@ let notes world {currentRoom} =>
     (selectedRoom world currentRoom |> mmap (fun {notes} => renderNotes notes) |> or_ nullElement)
   </div>;
 
-let selectWorld world {state} => Update {...state, currentWorld: world};
+let selectWorld world _ => Update {currentWorld: world, currentRoom: None};
 
 let picker update =>
   <div>

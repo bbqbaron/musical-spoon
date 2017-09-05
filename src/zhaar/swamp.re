@@ -242,17 +242,12 @@ let world = [
   },
   {
     x: 15,
-    y: 16,
+    y: 20,
     title: "Choked",
     notes: [
       P "The remains of constricted woven thicket. Not more than a month overgrown. Corpse just inside is full of dartflies. They sting. Over time, the infected will turn into an amphibious humanoid (and presumably return to the swamps). They're an ecological weapon of war. Secret Curtain of neglected vines conceals a clutch of eggs. They'll be ready to hatch in a week or so. Uncorrupted."
     ],
     cells: [
-      List.append
-        (repeat 5 None) [make label::"A" (), None, make label::"B" doors::[S, E] (), empty],
-      List.append (repeat 5 None) [empty, None, empty, empty, empty],
-      [None, None, None, empty, None, make doors::[S] (), None, empty, make label::"C" (), empty],
-      [None, make doors::[S, E] (), make label::"10" (), ...repeat 7 empty],
       [
         None,
         make doors::[S] (),
@@ -282,7 +277,7 @@ let world = [
         empty,
         None,
         make label::"~" (),
-        make label::"~" doors::[E] (),
+        make label::"~" doors::[E] walls::[S, W] (),
         make doors::[N, E] (),
         make walls::[S, E] (),
         make walls::[E] (),
@@ -291,6 +286,56 @@ let world = [
       ],
       [make label::"~" (), make label::"9" (), ...repeat 8 empty],
       List.append (repeat 6 None) [make secretDoors::[E] walls::[N] (), empty, empty, empty]
+    ]
+  },
+  {
+    x: 15,
+    y: 16,
+    title: "Banquet Hall",
+    notes: [
+      P "Tsathoggua 'landed' here",
+      P "A: Larder. May contain:",
+      L [
+        "The crushed shells of vintira gallura, which is supposed to be extinct",
+        "A pinch of fire violets, which are potent repellents of any creature that derives power from rage--literally ignites anger pheromones"
+      ],
+      P "C: Chieftain's corpse at table burst open. His spear, ornate, flies underwater as in air.",
+      P "B: Preparation: Discarded bone fetish of Tsathoggua can emit xyphonic waves. Their effects are _very_ unpredictable but may reward player invention. Fetish was used to attract Tsathoggua into chieftain's meal."
+    ],
+    cells: [
+      List.append
+        (repeat 5 None) [make label::"A" (), None, make label::"B" doors::[S, E] (), empty],
+      List.append (repeat 5 None) [empty, None, empty, empty, empty],
+      [None, None, None, empty, None, make doors::[S] (), None, empty, make label::"C" (), empty],
+      [None, make doors::[S, E] (), make label::"10" (), ...repeat 7 empty]
+    ]
+  },
+  {
+    x: 23,
+    y: 24,
+    title: "Trapped Echo",
+    notes: [
+      P "Tsathoggua's entrance created three physical echoes. use slaad stats. Red, blue, green; distributed throughout areas 12 and 13"
+    ],
+    cells: [
+      [make label::"11" doors::[S] ()],
+      [make doors::[S] ()],
+      [make doors::[S] ()],
+      [make doors::[S] ()],
+      [make doors::[S] ()],
+      [make doors::[S] ()],
+      [make doors::[E,W] ()]
+    ]
+  }, {
+    x: 24, y: 27, title: "Corrupted Egger Temple", notes: [
+      P "Stuck in laying mode, bullywug motherbride, immobile, lying among thousands of unfertilized eggs. Must be mated (symbolically :/ ) to another bullywug of any gender (they're hermaphroditic). Rotter priests could work. Commencing the ceremony attracts a Virrukkas, a spirit enraged by interpersonal connection."
+    ], cells: [
+      [None, None, ...repeat 3 empty],
+      [None, None, ...repeat 3 empty],
+      [None, None, ...repeat 3 empty],
+      [empty, empty, make label::"12" doors::[W] (), empty, empty],
+      [None, None, ...repeat 3 empty],
+      [None, None, ...repeat 3 empty],
     ]
   }
 ];
