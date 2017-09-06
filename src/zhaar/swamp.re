@@ -324,18 +324,103 @@ let world = [
       [make doors::[S] ()],
       [make doors::[S] ()],
       [make doors::[S] ()],
-      [make doors::[E,W] ()]
+      [make doors::[E, W] ()]
     ]
-  }, {
-    x: 24, y: 27, title: "Corrupted Egger Temple", notes: [
+  },
+  {
+    x: 24,
+    y: 27,
+    title: "Corrupted Egger Temple",
+    notes: [
       P "Stuck in laying mode, bullywug motherbride, immobile, lying among thousands of unfertilized eggs. Must be mated (symbolically :/ ) to another bullywug of any gender (they're hermaphroditic). Rotter priests could work. Commencing the ceremony attracts a Virrukkas, a spirit enraged by interpersonal connection."
-    ], cells: [
+    ],
+    cells: [
       [None, None, ...repeat 3 empty],
       [None, None, ...repeat 3 empty],
       [None, None, ...repeat 3 empty],
       [empty, empty, make label::"12" doors::[W] (), empty, empty],
       [None, None, ...repeat 3 empty],
-      [None, None, ...repeat 3 empty],
+      [None, None, ...repeat 3 empty]
+    ]
+  },
+  {
+    x: 19,
+    y: 26,
+    title: "Chieftain's Bedchamber",
+    notes: [
+      P "No bed, but a rotting nest that would have been replaced by now. Chieftain's enraged spirit sleeps here. Demands and can compel obeisance from hierarchic characters eg druids. He will only depart if the eggs are rescued (he does not know about them) or the temples are cleansed. He rests on a scrap of clothing that belonged to Ephraim, one of the kidnapped children, as well as an amulet belonging to Elgin, which he left there after bringing Tsathoggua here. The chieftain (Oggrush) suspects Elgin."
+    ],
+    cells: [
+      [empty, empty, make doors::[W] ()],
+      [empty, make label::"13" walls::[E] (), make doors::[S] ()],
+      [None, None, empty],
+      [None, None, empty],
+      [None, None, empty, make doors::[E] ()]
+    ]
+  },
+  {
+    x: 13,
+    y: 33,
+    title: "Repurposed Tomb",
+    notes: [
+      P "Four elven statues in corners. For a player with appropriate domain: Who are they? Which one is surprising and why? What _kind_ of elves were they?",
+      P "A: Great Toadstool. Obviously more recent than the construction. _May_ be potently hallucinegnic or toxic. _May_ have secondary fungi that enable its cultivation. _May_ host a nest of ether wasps, who unbind matter into subatomic stuff and eat it. There's some type of material they can't unbind. They're very useful components in spells that transmute or dissipate objects.",
+      P "Door: Through the hinged skirts of a statue. Is a common elf trick for any PC who might recognize it."
+    ],
+    cells: [
+      [make label::"X" (), make label::"14" (), make label::"X" ()],
+      [empty, make label::"A" (), empty],
+      [make label::"X" (), empty, make label::"X" secretDoors::[E] ()]
+    ]
+  },
+  {
+    x: 16,
+    y: 31,
+    title: "Sepulchre",
+    notes: [
+      P "Baron Kin'von'doss, the Moon Drinker, lies in state. He awakens when disturbed. He insists on news of the world, probably finding none of sufficient interest, he orders you out and returns to sleep. He may be induced to offer a tip for services well rendered."
+    ],
+    cells: [
+      [None, ...repeat 3 empty],
+      [None, empty, make label::"B" (), empty],
+      [None, make label::"15" (), empty, empty],
+      [None, empty],
+      repeat 2 empty
+    ]
+  },
+  {
+    x: 6,
+    y: 4,
+    title: "Corrupted Eater",
+    notes: [
+      P "A rapidly thinning megalobullywug has not been fed recently. This is not the corruption; this is neglect. Corruption is not wanting food. A mea of sufficient opulence must be prepared, possibly with the help of area 10."
+    ],
+    cells: [
+      [make label::"II-10" ()],
+      repeat 3 empty,
+      repeat 4 empty,
+      repeat 3 empty,
+      [None, empty],
+      repeat 3 empty,
+      [None, empty],
+      [empty, make label::"6" ()],
+      repeat 2 empty
+    ]
+  },
+  {
+    x: 0,
+    y: 7,
+    title: "Submerged Gate",
+    notes: [
+      P "This entire area is completely submerged in an unrecognizable translucent blue fluid. Faintly luminous. Breathable. Ingestion causes psychotic excess of some normal urge or impulse after an hour or so. 'Water' is occupied by floating crystalline pyramids that extrude greenish sludge that petrifies living flesh ('Those aren't statues')",
+      P "A: Gate. Leads (visibly, in a swirling pool) to an alien reality. Don't."
+    ],
+    cells: [
+      [None, None, make label::"II-2" ()],
+      [empty, make doors::[S] (), make doors::[S] (), make doors::[S] (), empty],
+      [None, ...repeat 3 empty],
+      [None, ...repeat 3 (make label::"~" ())],
+      [None, empty, make label::"A" (), empty]
     ]
   }
 ];

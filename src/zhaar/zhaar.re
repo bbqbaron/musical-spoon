@@ -42,7 +42,7 @@ let makeEdge color dir x y => {
 
 let makeDoor = makeEdge "#ff0000";
 
-let makeSecretDoor = makeEdge "00ffff";
+let makeSecretDoor = makeEdge "#00ffff";
 
 let makeWall = makeEdge "#000000";
 
