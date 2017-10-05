@@ -422,5 +422,53 @@ let world = [
       [None, ...repeat 3 (make label::"~" ())],
       [None, empty, make label::"A" (), empty]
     ]
+  },
+  {
+    x: 0,
+    y: 14,
+    title: "Gallery of Memory",
+    notes: [
+      P "Originally an ancestor museum; now rife with psychic echoes. Anyone moving through the hallway will be harried by psychic demons. Faster travel means more damage.",
+      P "A: Ghostly bullywugs run from here forever, only to be cut down. Hallway may be cleansed by a ritual that the players make up. It's the thought that counts."
+    ],
+    cells: [[make label::"II-3" ()], [empty], [empty], [make label::"A" ()]]
+  },
+  {
+    x: 0,
+    y: 37,
+    title: "Menagerie",
+    notes: [
+      P "The weapons brought by Tsathoggua. Being an alien, he doesn't necessarily understand what is or is not lethal. Each weapon occupies a creche made of an odd, extruded translucent material. Some are empty. Remaining:",
+      L [
+        "Kanarid, mid-transformation. Man-head on fox-body. Its presence causes atavistic homicide and cannibalism. Mostly walks among foxes setting the woods to murderous disorder; occasionally deployed against humans.",
+        "Eventrupp. Exists only as a curtain of thought in a passage. Imparts knowledge of a flesh-eating planet that is only a week or so's journey from the surface of the planet. The plant _is_ floating in space out there but I think the idea is for you to asphyxiate while swimming through the air, which of course the Eventrupp's madness allows you to do.",
+        "Osybar. Is the missing hoop from a stack of three wooden hoops that appear to ascend in size, with one conspicuous gap. Destroying any hoop destroys the osybar. It is unclear what purpose this creation serves."
+      ]
+    ],
+    cells:
+      List.[
+        concat [repeat 9 None, [make label::"II-4" ()]],
+        concat [repeat 8 None, repeat 3 empty],
+        concat [repeat 6 None, repeat 3 empty, [None], repeat 3 empty],
+        concat [repeat 4 None, repeat 3 empty, [None, empty, None, empty, None], repeat 3 empty],
+        concat [repeat 4 None, concat (repeat 5 [empty, None])],
+        concat [[None, ...repeat 4 empty], concat (repeat 4 [None, empty])],
+        [
+          empty,
+          empty,
+          None,
+          empty,
+          None,
+          empty,
+          make walls::[E] (),
+          empty,
+          empty,
+          None,
+          empty,
+          make walls::[E] (),
+          empty,
+          make walls::[E] (),
+        ]
+      ]
   }
 ];
